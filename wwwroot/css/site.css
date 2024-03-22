@@ -1,0 +1,353 @@
+/*-----------------------------------------------------------------
+                            Base html
+-----------------------------------------------------------------*/
+html {
+    font-size: 14px;
+    background-color: #0e0e0e;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: transparent;
+    color: white;
+}
+
+header {
+    background-color: #1c1c1c;
+}
+
+input:focus {
+    outline: none;
+}
+
+a:hover {
+    color: #999;
+}
+
+
+/*-----------------------------------------------------------------
+                              Nav Bar
+-----------------------------------------------------------------*/
+.nav-img-size {
+    width: 80%;
+}
+
+.nav-img-settings {
+    width: 60%;
+    float: right;
+}
+
+#searchbar-elem a {
+    padding: 6px 6px;
+}
+
+#nav-setting {
+    width: 64px;
+}
+
+#nav-setting button {
+    border: none;
+    padding:0;
+    margin: 1px 6px;
+    background-color: transparent;
+}
+
+
+/*-----------------------------------------------------------------
+                         Search Bar
+-----------------------------------------------------------------*/
+.nav-searchbar {
+    border: none;
+    padding: 5px 10px;
+}
+
+#genres, #year, #sortBy {
+    visibility: hidden;
+    margin-top: 5px;
+    transition: visibility 0s, opacity 0.2s linear;
+    opacity: 0;
+}
+
+#genresSelect, #yearSelect,
+#sortBySelect, #searchSub,
+#inputSearch {
+    float: left;
+}
+
+#inputSearch {
+    padding: 2px 10px;
+}
+
+.searchBar {
+    border: none;
+    margin-left: 0.5rem;
+}
+
+.formSelectBox {
+    position: absolute;
+    padding: 5px 10px;
+    margin: 5px 9px;
+    width: 600px;
+}
+
+.formSelectBox ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.formSelectBox input[type="checkbox"] {
+    appearance: none;
+    float: left;
+    margin: 0;
+    margin-right: 5px;
+    width: 1em;
+    height: 1em;
+    border: 0;
+    border-radius: 5px;
+    display: grid;
+    place-content: center;
+    background-color: #777;
+    transform: translateY(4px);
+}
+.formSelectBox input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #663399;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+.formSelectBox input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.formSelectElement {
+    width: 25%;
+    float: left;
+    color: #777777;
+}
+
+/*-----------------------------------------------------------------
+                         Anime Movie style
+-----------------------------------------------------------------*/
+@media (min-width: 105rem) {
+    .contentBody {
+        max-width: 105rem;
+    }
+}
+
+.contentBody {
+    margin-top: 2rem;
+}
+
+.contentNavStl {
+    background-color: transparent;
+    margin-bottom: 0.5rem;
+    color: white;
+    border: 0;
+}
+
+
+/*-----------------------------------------------------------------
+                            Home View
+-----------------------------------------------------------------*/
+.homeBtnImg {
+    height: 73vh;
+    border-radius: 10px;
+}
+
+.homeImgGap {
+    padding: 0;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.homeBtnEfk :not(:hover) {
+    -webkit-transform: translateY(0.2em);
+    -moz-transform: translateY(0.2em);
+    -o-transform: translateY(0.2em);
+    transform: translateY(0.2em);
+    transition: 0.45s;
+}
+
+.homeBtnEfk :hover {
+    -webkit-transform: translateY(-0.2em);
+    -moz-transform: translateY(-0.2em);
+    -o-transform: translateY(-0.2em);
+    transform: translateY(-0.2em);
+    transition: 0.45s;
+}
+
+.homeIteams {
+    padding-top: 5rem;
+}
+
+/*-----------------------------------------------------------------
+                            Anime View
+-----------------------------------------------------------------*/
+
+.animeViewBtn {
+    height: 19em;
+    border-radius: 10px;
+    border: solid #3c3c3c 2px;
+}
+
+.rankMainControll {
+    display: block;
+    cursor: default;
+    overflow: auto;
+}
+
+.rankControll {
+    color: #777777; 
+    background: #1c1c1c;
+    border-radius: 5px;
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+}
+
+.rankControll:hover {
+    background: #2e2e2e;
+}
+
+.rankControllName {
+    float: left;
+    color: #777777;
+    font-weight: 500;
+}
+
+.animeRightSideBox {                                       /*-------------------------------DELEAT-------------------------------*/
+    border: solid #3c3c3c 2px;
+    border-radius: 5px;
+}
+
+
+/*-----------------------------------------------------------------
+                            Movie View
+-----------------------------------------------------------------*/
+
+.control-line {
+    margin-right: 15px;
+}
+
+.movie-elem {
+    color: #999;
+    text-decoration: none;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    width: 214px;
+    height: 317px;
+    margin-right: 9px;
+    margin-left: 9px;
+    margin-bottom: 15px;
+    opacity: 1;
+    transition: all .5s ease;
+}
+
+a .movie-elem :hover {
+    color: #b8b8b8;
+}
+
+.movie-img {
+    vertical-align: top;
+    position: absolute;
+    overflow: hidden;
+    border: 0 none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-clip: padding-box;
+    box-shadow: 0 1px 4px rgba(0,0,0,.3), 0 0 40px rgba(0,0,0,.1) inset;
+}
+.movie-text {
+    background: rgba(0, 0, 0, .7);
+    border-radius: 4px 4px 0 0;
+    position: absolute;
+    height: 292px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 100;
+    text-align: center;
+    transition: all .3s ease;
+}
+
+.movie-text p{
+    position: relative;
+    font-size: 20px;
+    padding: 5px;
+    top: 100px;
+}
+
+.movie-elem span {
+    background: rgba(0, 0, 0, .7);
+    border-radius: 0 0 4px 4px;
+    position: absolute;
+    padding: 5px;
+    height: 25px;
+    width: 100%;
+    top: 292px;
+    left: 0;
+}
+.movie-elem span img {
+    position: relative;
+    float: right;
+}
+
+.movie-elem span p {
+    position: relative;
+    font-size: 14px;
+    float: left;
+    top: -2px;
+    margin-left: 1px;
+}
+
+/*-----------------------------------------------------------------
+                            Settings View
+-----------------------------------------------------------------*/
+.setting-title {
+    margin-bottom: 20px;
+}
+
+.setting-title h3,
+.setting-title h4{
+    text-align: center;
+    color: #777777;
+}
+
+.settig-l {
+    margin-bottom: 5px;
+}
+
+.settig-l h4 {
+    float: right;
+    color: #777777;
+}
+
+.settig-r button {
+    border: none;
+    border-radius: 1px;
+}
+
+.settings input {
+    border: none;
+}

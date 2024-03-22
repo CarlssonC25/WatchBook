@@ -1,0 +1,70 @@
+﻿<div class="container-fluid contentBody">
+	<div class="row">
+
+		<div class="col-12">
+			<form id="searchBarA">
+				<div id="textSearch">
+					<input id="inputSearch" type="text" class="searchBar elemColorStyle-1" placeholder="Search..." />
+				</div>
+
+				<!--TODO DB input (genres) -->
+				<div id="genresSelect">
+					<button onclick="showSearchSelect('genres'); return false;" class="searchBar elemActionStyle-1 elemColorStyle-1">Genre</button>
+					<div id="genres" class="formSelectBox elemColorStyle-1">
+						<ul>
+							@for (var x = 0; x <= 11; x++)
+							{
+								<li class="formSelectElement">
+									<input type="checkbox" id="@x" onclick="checkboxBackColor(@x)" name="genre" value="@x" />
+									<label for="@x">@x</label>
+								</li>
+							}
+						</ul>
+					</div>
+				</div>
+
+				<!--TODO DB input (year) -->
+				<div id="yearSelect">
+					<button onclick="showSearchSelect('year'); return false;" class="searchBar elemActionStyle-1 elemColorStyle-1">Select Year</button>
+					<div id="year" class="formSelectBox elemColorStyle-1">
+						<ul>
+							@for (var x = 20; x <= 31; x++)
+							{
+								<li class="formSelectElement">
+									<input type="checkbox" id="@x" onclick="checkboxBackColor(@x)" name="yearSelect" value="@x" />
+									<label for="@x">@x</label>
+								</li>
+							}
+						</ul>
+					</div>
+				</div>
+
+				
+				<div id="sortBySelect">
+					<button onclick="showSearchSelect('sortBy'); return false;" class="searchBar elemActionStyle-1 elemColorStyle-1">Sort By</button>
+					<div id="sortBy" class="formSelectBox elemColorStyle-1">
+						<ul>
+							<li class="formSelectElement">
+								<input type="checkbox" class="checkboxSearch" id="releaseDate" onclick="checkOnlyOne('releaseDate')" name="sort" value="releaseDate" />
+								<label for="releaseDate">Release Date</label>
+							</li>
+							<li class="formSelectElement">
+								<input type="checkbox" class="checkboxSearch" id="az" onclick="checkOnlyOne('az');" name="sort" value="az" />
+								<label for="az">A-Z</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<input id="searchSub" class="searchBar elemActionStyle-1 elemColorStyle-1" type="submit" value="Suchen" />
+			</form>
+		</div>
+
+	</div>
+</div>
+
+
+<script language="javascript" type="text/javascript">
+	document.getElementById("searchbar-elem").style.visibility = "hidden";
+	document.getElementById("nav-setting-btn").style.visibility = "hidden";
+</script>

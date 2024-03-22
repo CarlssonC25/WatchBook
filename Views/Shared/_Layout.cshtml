@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WatchBook</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/myCalss.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WatchBook.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+            <div class="container-fluid">
+                <a id="logoBtn" class="navbar-bar-logo hoverBackColor" asp-area="" asp-controller="WatchBook" asp-action="Index">
+                    <img class="nav-img-size" src="/img/MovieTicketW.png" />
+                </a>
+                <div class="navbar-search">
+                    <div id="searchbar-elem" class="elemColorStyle-2">
+                        <input id="searchbar-input" type="text" name="search" class="elemColorStyle-2 elemActionStyle-2 nav-searchbar" placeholder="Search..." />
+                        <a id="searchbar-btn" class="elemColorStyle-2 elemActionStyle-2 nav-searchbar" asp-area="" asp-controller="WatchBook" asp-action="SearchView">
+                            <img src="/img/lupe.png"/>
+                        </a>
+                            
+                    </div>
+                </div>
+                <div id="nav-setting">
+                    <a id="nav-setting-btn" asp-area="" asp-controller="WatchBook" asp-action="SettingsView">
+                        <img class="nav-img-settings" src="/img/settings.png" />
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

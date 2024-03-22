@@ -1,0 +1,73 @@
+﻿/*all*/
+.mrg-l10 {
+    margin-left: 10px;
+}
+
+.mrg-l6 {
+    margin-left: 6px;
+}
+
+.pad-0 {
+    padding: 0;
+}
+
+.fl-r {
+    float: right;
+}
+
+.tx-al-cent{
+    text-align: center;
+}
+
+.tx-al-r {
+    text-align: right;
+}
+
+
+/*Elem color Style*/
+.elemColorStyle-1 {
+    background: #1c1c1c;
+    border-radius: 5px;
+    color: #777777;
+}
+
+.elemColorStyle-1:focus {
+    background-color: #2e2e2e;
+}
+
+.elemColorStyle-2 {
+    background: #0e0e0e;
+    border-radius: 5px;
+    color: #777777;
+}
+
+.elemColorStyle-2:focus {
+    background-color: #2e2e2e;
+}
+
+
+/*Elem action Style*/
+
+.elemActionStyle-1 {
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+}
+
+.elemActionStyle-1:hover {
+    background: #2e2e2e;
+    color: #777777;
+}
+
+.elemActionStyle-2 {
+    -webkit-transition: background-color 0.5s ease-out;
+    -moz-transition: background-color 0.5s ease-out;
+    -o-transition: background-color 0.5s ease-out;
+    transition: background-color 0.5s ease-out;
+}
+
+.elemActionStyle-2:hover {
+    background: #2e2e2e;
+    color: #777777;
+}

@@ -1,0 +1,34 @@
+﻿<div class="container-fluid contentBody">
+	<div class="row">
+		<div class="col-12">
+			<dív class="fl-r control-line">
+				<button class="rankControll animeNavStl contentNavStl" onclick="">+</button>
+				<button class="rankControll animeNavStl contentNavStl mrg-l6" onclick="">˂</button> <!-- TODO previousPage on click event -->
+				<button class="rankControll animeNavStl contentNavStl" onclick="">˃</button>		   <!-- TODO nextPage on click event -->
+			</dív>
+		</div>
+	</div>
+
+	<div>
+		<!--TODO add data for DB -->
+		@for (var i = 0; i < 21; i++)
+		{
+			<a href="" class="movie-elem" onmouseover="movieShowCont(this)" onmouseout="movieHideCont(this)">
+				<img src="~/img/iron-man.png" class="movie-img" />
+				<div class="movie-text">
+					<p>Test</p>
+				</div>
+				<span>
+					<p>1</p> <!--TODO num of films-->
+					<img src="~/img/buy.png" /> <!--TODO if (all) buy show-->
+				</span>
+			</a>
+		}
+	</div>
+
+</div>
+
+<script language="javascript" type="text/javascript">
+	document.getElementById("searchbar-elem").style.visibility = "visible";
+	document.getElementById("nav-setting-btn").style.visibility = "hidden";
+</script>

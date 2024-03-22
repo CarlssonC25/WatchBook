@@ -1,0 +1,65 @@
+﻿<div class="container-fluid contentBody animeBody">
+	
+	<div class="row">
+		<div class="col-10">
+
+			
+			<div class="rankMainControll animeSwitchRank">
+				<div style="overflow:auto;">
+					<button class="rankControll contentNavStl fl-r" onclick="">+</button>
+				</div>
+				<span class="contentNavStl rankControllName">Ranking</span>
+				<div class="fl-r">
+					<!-- TODO Mini Nav (Rank 1-10 +Sub switch to Search a Rank)-->
+					<button class="rankControll contentNavStl" onclick="">1</button> <!-- TODO click event to all ranks -->
+					<button class="rankControll contentNavStl" onclick="">2</button>
+					<button class="rankControll contentNavStl" onclick="">3</button>
+					<button class="rankControll contentNavStl" onclick="">4</button>
+					<button class="rankControll contentNavStl" onclick="">5</button>
+					<button class="rankControll contentNavStl" onclick="">6</button>
+					<button class="rankControll contentNavStl" onclick="">7</button>
+					<button class="rankControll contentNavStl" onclick="">8</button>
+					<button class="rankControll contentNavStl" onclick="">9</button>
+					<button class="rankControll contentNavStl" onclick="">10</button>
+					<button class="rankControll contentNavStl" onclick="">S</button>
+					<button class="rankControll contentNavStl mrg-l10" onclick="">˂</button> <!-- TODO previousPage on click event -->
+					<button class="rankControll contentNavStl" onclick="">˃</button>			<!-- TODO nextPage on click event -->
+				</div>
+			</div>
+
+			<!-- generate Elements of rank -->
+			<div class="animeView">
+				<div class="row">
+					<!-- TODO needs 6 anime from rank (first load rank 1) --------------------------------------------------------------------------------- ADD -->
+					@for (var i = 0; i <= 11; i++)
+					{
+						@if (i == 6)
+						{
+							<div class="col-12" style="height:1rem"></div>
+						}
+						<div class="col-2">
+							<div class="animeViewBtn">
+								@i
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- TODO Side Box top watch count -->
+		<div class="col-2 animeRightSideBox">
+
+
+		</div>
+	</div>
+
+</div>
+
+
+<script language="javascript" type="text/javascript">
+	document.getElementById("searchbar-elem").style.visibility = "visible";
+	document.getElementById("nav-setting-btn").style.visibility = "hidden";
+</script>
