@@ -26,8 +26,6 @@ function hiddeShowSwitchIDs(idOne, idTwo) {
 function hiddeShowOnID(id) {
     var elem = document.getElementById(id);
 
-    console.log(elem); // test
-
     if (elem.classList.contains("display-n")) {
         elem.classList.remove("display-n");
     } else {
