@@ -1,0 +1,122 @@
+﻿<div class="container-fluid contentBody elem-center">
+    
+    <div id="add-new-row">
+
+        <p id="add-new-titel">Add New </p>
+
+        <div class="flex">
+
+            <div id="add-new-img">
+                <img src="/img/test.jpg" /> <!-- TODO has to look god with (height:602px and width:1094px) (width is 1,817px to height 1px)-->
+            </div>
+
+            <div id="add-new-info">
+                <input id="add-new-name" type="text" placeholder="Name" />
+                <input id="add-new-original-name" type="text" placeholder="Original Name" /> 
+
+                <input id="addTo" type="hidden" value="" /> <!-- TODO if name exist set value too true -->
+
+                <div id="add-new-buy" class="flex">
+                    <p class="add-new-frontText">Buy:</p>
+
+                    <input id="HD" class="curs-hand addNewByCheckbox" type="checkbox" onchange="setHiddenValue('addNewBuy', 'HD')" onclick="checkOnlyOne('HD', 'addNewByCheckbox')" />
+                    <label for="HD">HD</label>
+
+                    <input id="bluRay" class="curs-hand addNewByCheckbox" type="checkbox" onchange="setHiddenValue('addNewBuy', 'bluRay')" onclick="checkOnlyOne('bluRay', 'addNewByCheckbox')" />
+                    <label for="bluRay">BluRay</label>
+
+                    <input id="addNewBuy" type="hidden" value="" />
+                </div>
+
+                <textarea id="add-new-text" placeholder="Description"></textarea>
+
+
+                <div class="flex mrg-t10">
+                    <div id="add-new-info-l">
+
+                        <div class="flex">
+                            <p class="add-new-frontText">FSK:</p>
+
+                            <input id="fsk6" class="curs-hand addNewAgeCheckbox" type="checkbox" onchange="setHiddenValue('addNewAge', 6)" onclick="checkOnlyOne('fsk6', 'addNewAgeCheckbox')" />
+                            <label for="fsk6">6+</label>
+                            <input id="fsk12" class="curs-hand addNewAgeCheckbox" type="checkbox" onchange="setHiddenValue('addNewAge', 12)" onclick="checkOnlyOne('fsk12', 'addNewAgeCheckbox')" />
+                            <label for="fsk12">12+</label>
+                            <input id="fsk16" class="curs-hand addNewAgeCheckbox" type="checkbox" onchange="setHiddenValue('addNewAge', 16)" onclick="checkOnlyOne('fsk16', 'addNewAgeCheckbox')" />
+                            <label for="fsk16">16+</label>
+                            <input id="fsk18" class="curs-hand addNewAgeCheckbox" type="checkbox" onchange="setHiddenValue('addNewAge', 18)" onclick="checkOnlyOne('fsk18', 'addNewAgeCheckbox')" />
+                            <label for="fsk18">18+</label>
+
+                            <input id="addNewAge" type="hidden" value="" />
+                        </div>
+
+                        <div class="flex">
+                            <p class="add-new-frontText">Country:</p>
+
+                            <input id="japan" type="checkbox" class="curs-hand add-new-country" onchange="setHiddenValue('addNewCountry', 'japan')" onclick="checkOnlyOne('japan', 'add-new-country')" />
+                            <label for="japan">Japan</label>
+
+                            <input id="china" type="checkbox" class="curs-hand add-new-country" onchange="setHiddenValue('addNewCountry', 'china')" onclick="checkOnlyOne('china', 'add-new-country')" />
+                            <label for="china">China</label>
+
+                            <input id="addNewCountry" type="hidden" value="" />
+                        </div>
+
+                        <div class="flex">
+                            <p class="add-new-frontText">Favourite:</p>
+                            <input id="addNewFavourite" class="curs-hand" type="checkbox" onclick="checkboxBackColor('addNewFavourite')" />
+                        </div>
+
+                        <div class="mrg-t5">
+                            <div class="flex">
+                                <p class="add-new-frontText">Genres:</p>
+                                <button class="btnStyle" onclick="showSearchSelect('addGenres')">Add</button>
+                            </div>
+
+                            <div id="addGenres" class="elemColorStyle-1 add-new-box display-n">
+                                <ul class="flex">
+                                    @for (var x = 10; x <= 21; x++)
+                                    {
+                                        <li>
+                                            <input type="checkbox" id="@x" onclick="checkboxBackColor(@x); addGenre(@x);" name="genre" value="@x" />
+                                            <label for="@x">@x</label>
+                                        </li>
+                                    }
+                                </ul>
+                                <input id="addNewGenres" type="hidden" value="" /> <!--TODO oncklick add/remove genre id in value-->
+                            </div>
+
+                            <div id="add-new-show-genres" class="mrg-t10"></div>
+                        </div>
+
+                    </div>
+
+                    <div id="add-new-info-r">
+
+                        <div class="flex mrg-t5">
+                            <p class="mrg-r10">Date:</p>
+                            <input id="addNewDate" type="date" />
+                        </div>
+
+                        <div class="mrg-t5">
+                            <input id="addNewEpisodes" type="number" placeholder="Episodes" />
+                        </div>
+
+                        <div class="mrg-t5">
+                            <input id="addNewRank" type="text" placeholder="Rank" />
+                        </div>
+
+                        <div class="mrg-t5">
+                            <input id="addNewLink" type="text" placeholder="Link"/>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="flex-r">
+                    <button class="btnStyle">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

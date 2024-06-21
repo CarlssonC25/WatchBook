@@ -1,34 +1,124 @@
 ﻿<div class="container-fluid contentBody">
-	<div class="row">
-		<div class="col-12">
-			<dív class="fl-r control-line">
-				<button class="rankControll animeNavStl contentNavStl" onclick="">+</button>
-				<button class="rankControll animeNavStl contentNavStl mrg-l6" onclick="">˂</button> <!-- TODO previousPage on click event -->
-				<button class="rankControll animeNavStl contentNavStl" onclick="">˃</button>		   <!-- TODO nextPage on click event -->
-			</dív>
-		</div>
-	</div>
 
-	<div>
-		<!--TODO add data for DB -->
-		@for (var i = 0; i < 21; i++)
-		{
-			<a href="" class="movie-elem" onmouseover="movieShowCont(this)" onmouseout="movieHideCont(this)">
-				<img src="~/img/iron-man.png" class="movie-img" />
-				<div class="movie-text">
-					<p>Test</p>
+
+	<div class="row">
+		<div class="col-10">
+
+			<div class="elem-center mrg-b10">
+				<p class="rankControllName">Movies</p>
+			</div>
+
+			<div>
+				<div class="fl-r">
+					<a asp-area="" asp-controller="WatchBook" asp-action="AddNewView">
+						<button class="btnStyle mrg-r9">+</button> <!-- TODO rederect on btn click and sent var movie-->
+					</a>
 				</div>
-				<span>
-					<p>1</p> <!--TODO num of films-->
-					<img src="~/img/buy.png" /> <!--TODO if (all) buy show-->
-				</span>
-			</a>
-		}
+
+				<dív class="control-line">
+					<button class="btnStyle" onclick="">˂˂</button> <!-- TODO previousPage on click events -->
+					<button class="btnStyle" onclick="">˂</button> <!-- TODO -->
+					<!--TODO set nav num -->
+					@for (var i = 0; i < 6; i++)
+					{
+						<button class="btnStyle" onclick="">@i</button> <!-- TODO -->
+					}
+					<button class="btnStyle" onclick="">˃</button> <!-- TODO -->
+					<button class="btnStyle" onclick="">˃˃</button> <!-- TODO -->
+
+				</dív>
+			</div>
+
+			<div class="movieElemContainer">
+				<!--TODO add data for DB -->
+				@for (var i = 0; i < 14; i++)
+				{
+					<a class="movie-elem" onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)" asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+						<img src="~/img/test.jpg" class="movie-img" />
+						<div class="movie-text opt-0 elem-hover-efk">
+							<p>Test</p>
+						</div>
+						<span class="supp-content-line">
+							<span class="supp-content-info">
+								<p>1</p> <!--TODO num of films-->
+							</span>
+							<img src="~/img/all-available.png" /> <!--TODO show if available (some or all icon)-->
+						</span>
+					</a>
+				}
+			</div>
+
+			<div id="movie-FSK">
+				<select name="fsk" onfocus='this.size=5;' onblur='this.size=0;' onchange='this.size=1; this.blur();'>
+					<option value="favoriten">Favorites</option>
+					<option value="6">+6</option>
+					<option value="12">+12</option>
+					<option value="16">+16</option>
+					<option value="18">+18</option>
+				</select>
+			</div>
+
+		</div>
+
+		<div class="col-2">
+
+			<div class="movie-side-buffer mrg-b10"></div>
+
+			<div class="flex-r">
+				<button class="btn-show-watch-later" onclick="hiddeShowSwitchIDs('right-side-content', 'watch-later-content')">
+					<img src="/img/watch-later.png" />
+				</button>
+			</div>
+
+			<div class="right-side-box mrg-t5">
+
+				<div id="right-side-content">
+
+					@for (var i = 1; i <= 3; i++)
+					{
+						<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+							<!-- TODO send Item ID to pache-->
+							<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="animeSideBoxHover(this)" onmouseout="animeSideBoxHoverOff(this)">
+								<img src="/img/test.jpg" />
+								<p class="side-item-name">Name</p> <!-- TODO change name -->
+								<div class="w-100">
+									<p class="fl-l">Views:</p>
+									<span>@i</span>
+								</div>
+							</div>
+						</a>
+					}
+
+					<div class="right-side-item-background side-item-count mrg-0">
+						<p>Movies:</p><p id="all-movies"></p>
+					</div>
+
+				</div>
+
+				<div id="watch-later-content" class="display-n">
+
+					<!-- TODO check if in watch later movies DB lines
+						if Yes put out all 6 show and them skroll down
+						at to last elem -> class"mrg-0"
+
+						if not put out Black
+					-->
+					<!--blank-->
+					<div class="right-side-item-background mrg-0">
+						<div class="elem-center">empty</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
 	</div>
 
 </div>
 
+
+<script src="~/js/site.js"></script>
 <script language="javascript" type="text/javascript">
-	document.getElementById("searchbar-elem").style.visibility = "visible";
-	document.getElementById("nav-setting-btn").style.visibility = "hidden";
+	searchBarOnOFF("searchbar-elem", true);
 </script>

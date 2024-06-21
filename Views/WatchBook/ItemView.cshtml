@@ -1,0 +1,85 @@
+﻿<div class="container-fluid contentBody">
+
+    <div class="flex">
+        <div id="item-player-container" class="flex">
+            <div id="item-palyer-episodes" class="flex">
+            </div>
+            <div id="item-player-row">
+                <div id="item-player">
+                    <img src="/img/test.jpg" />
+                </div>
+
+                <div id="item-info-container" class="flex">
+
+                    <div id="item-img">
+                        <img src="/img/test.jpg" /> <!-- TODO has to look god with (height:602px and width:1094px) (width is 1,817px to height 1px)-->
+                    </div>
+
+                    <div id="item-info">
+                        <div id="item-name">Item Name</div>
+                        <div id="item-original-name">Item original Name</div>
+
+                        <div id="item-buy" class="flex">
+                            <!-- TOD show only item DB -->
+                            <p class="mrg-r10 display-n">DVD</p>
+                            <p class="mrg-r10 display-n">BluRay</p>
+                            <p class="mrg-r10">To Buy</p>
+                        </div>
+
+
+
+                        <div id="item-text" class="item-text-limit">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
+
+                        <div id="item-text-length" class="flex-r" onclick="itemInfoTextLength('item-text', 'item-text-limit', 'item-text-btn')">
+                            <span id="item-text-btn" class="click-text">[+]</span>
+                        </div>
+
+                        <div class="flex">
+                            <div id="item-info-l">
+                                <div class="flex">
+                                    Country:&nbsp<a id="item-country" class="click-text">test</a><!-- TODO Set Country-->
+                                </div>
+                                <div class="flex">
+                                    Genres:&nbsp<a id="item-geres" class="click-text">test</a><!-- TODO Set genres (all in a extra span)-->
+                                </div>
+                            </div>
+                            <div id="item-info-r">
+                                <div class="flex">
+                                    Date aired:&nbsp<a id="item-date" class="click-text">test</a><!-- TODO Set date-->
+                                </div>
+                                <div class="flex">
+                                    Episodes:&nbsp<span id="item-episodes" class="txt-light">test</span><!-- TODO Set episodes num-->
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="fl-r"><img src="/img/wrench.png" /></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="item-sidebar-container">
+            <div id="item-sidebar">
+            </div>
+
+        </div>
+    </div>
+     
+    <div id="item-family-row">
+        <div class="flex">
+            <!-- TODO sord items after Date-->
+            @for (var i = 1; i <= 4; i++)
+            {
+                <div class="item-family">
+                    <img src="/img/test.jpg" /> <!-- TODO Set img from DB-->
+                    <p>Season @i</p> <!-- TODO (num ++) and (if Movie switch name to Movie)-->
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>

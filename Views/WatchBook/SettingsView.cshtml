@@ -1,54 +1,72 @@
 ﻿<div class="container-fluid contentBody">
 	<div class="row settings">
-		<div class="col-12 setting-title">
-			<h3>Settings</h3>
+		<div class="elem-center setting-title">
+			<p>Settings</p>
 		</div>
 
-		<div class="col-6 settig-l">
-			<h4>Set Database</h4>
-		</div>
-		<div class="col-6 settig-r">
-			<!-- TODO Create / uplode DB -->
-			<button class="elemColorStyle-1 elemActionStyle-1">Set</button>
-			<button class="elemColorStyle-1 elemActionStyle-1">New</button>
+		<div class="elem-center">
+			<p>Set Database</p>
+
+			<div>
+				<!-- TODO Create / uplode DB -->
+				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">Set</button>
+				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">New</button>
+			</div>
 		</div>
 
-		<div class="col-6 settig-l">
-			<h4>Create By list</h4>
-		</div>
-		<div class="col-6 settig-r">
-			<!-- TODO Create .txt -->
-			<button class="elemColorStyle-1 elemActionStyle-1">Create</button>
+		<div class="elem-center">
+			<p>Create By list</p>
+
+			<div>
+				<!-- TODO Create .txt -->
+				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">Create</button>
+			</div>
 		</div>
 
-		<div class="col-6 settig-l">
-			<h4>Export Database</h4>
-		</div>
-		<div class="col-6 settig-r">
-			<!-- TODO export DB -->
-			<button class="elemColorStyle-1 elemActionStyle-1">Export</button>
+		<div class="elem-center">
+			<p>Export Database</p>
+
+			<div>
+				<!-- TODO export DB -->
+				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">Export</button>
+			</div>
 		</div>
 
 
-		<div class="col-12 setting-title">
-			<h4>Set Search link</h4>
-		</div>
-		<div class="col-5">
-			<p style="text-align: end">how to search link</p><!--TODO how to search link-->
-			<input type="text" placeholder="https://...." class="elemColorStyle-1 fl-r tx-al-r" />
-		</div>
-		<div class="col-2 tx-al-cent">
-			<p>how to search link</p><!--TODO how to search link-->
-			<input type="text" placeholder="name-name" class="elemColorStyle-1 tx-al-cent" />
-		</div>
-		<div class="col-5">
-			<p>how to search link</p><!--TODO how to search link-->
-			<input type="text" placeholder="..../search" class="elemColorStyle-1" />
+		<div class="setting-title formSelectBox">
+			<p class="elem-center">Search with</p>
+
+			<div class="elem-center">
+				<input id="setting-googel" class="setting-link" type="checkbox" onclick="checkOnlyOne('setting-googel', 'setting-link')" /><!-- TODO set by selekt in DB new-->
+				<label for="setting-googel">Google</label>
+			</div>
+			<div class="elem-center">
+				<input id="setting-youtube" class="setting-link" type="checkbox" onclick="checkOnlyOne('setting-youtube', 'setting-link')" />
+				<label for="setting-youtube">YouTube</label>
+			</div>
 		</div>
 
-		
-	</div>
-	
+		<div>
+			<p class="elem-center">Set Start Imgs</p>
+
+			<div class="elem-center">
+				<div id="setting-homescreen">
+					<div class="home-container">
+						<a onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)">
+							<span class="elem-hover-efk opt-0">Movie</span>
+							<img class="" src="/img/MovieButton.jpg" />	<!-- TODO load img form DB -->
+						</a>
+						<a onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)">
+							<span class="elem-hover-efk opt-0">Anime</span>
+							<img class="" src="/img/AnimeButton.jpg" /> <!-- TODO load img form DB -->
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>	
 </div>
 
 <script language="javascript" type="text/javascript">

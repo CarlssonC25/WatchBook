@@ -28,5 +28,16 @@ namespace WatchBook.Controllers
 		{
 			return View();
 		}
-	}
+
+        public IActionResult ItemView() 
+        { 
+            return View(); 
+        }
+
+        public IActionResult AddNewView()
+        {
+            return View();
+        }
+
+    }
 }

@@ -2,64 +2,111 @@
 	
 	<div class="row">
 		<div class="col-10">
-
-			
+						
 			<div class="rankMainControll animeSwitchRank">
 				<div style="overflow:auto;">
-					<button class="rankControll contentNavStl fl-r" onclick="">+</button>
+					<a asp-area="" asp-controller="WatchBook" asp-action="AddNewView"> 
+						<button class="btnStyle fl-r">+</button>  <!-- TODO rederect on btn click and sent var anime-->
+					</a>
 				</div>
 				<span class="contentNavStl rankControllName">Ranking</span>
-				<div class="fl-r">
+				<div class="fl-r mrg-t5">
 					<!-- TODO Mini Nav (Rank 1-10 +Sub switch to Search a Rank)-->
-					<button class="rankControll contentNavStl" onclick="">1</button> <!-- TODO click event to all ranks -->
-					<button class="rankControll contentNavStl" onclick="">2</button>
-					<button class="rankControll contentNavStl" onclick="">3</button>
-					<button class="rankControll contentNavStl" onclick="">4</button>
-					<button class="rankControll contentNavStl" onclick="">5</button>
-					<button class="rankControll contentNavStl" onclick="">6</button>
-					<button class="rankControll contentNavStl" onclick="">7</button>
-					<button class="rankControll contentNavStl" onclick="">8</button>
-					<button class="rankControll contentNavStl" onclick="">9</button>
-					<button class="rankControll contentNavStl" onclick="">10</button>
-					<button class="rankControll contentNavStl" onclick="">S</button>
-					<button class="rankControll contentNavStl mrg-l10" onclick="">˂</button> <!-- TODO previousPage on click event -->
-					<button class="rankControll contentNavStl" onclick="">˃</button>			<!-- TODO nextPage on click event -->
+					@for(var i=1; i <= 10; i++)
+					{
+						<button class="btnStyle" onclick="">@i</button> <!-- TODO click event to all ranks -->
+					}
+
+					<button class="btnStyle" onclick="">S</button>
+					<button class="btnStyle mrg-l10" onclick="">˂</button> <!-- TODO previousPage on click event -->
+					<button class="btnStyle" onclick="">˃</button>			<!-- TODO nextPage on click event -->
 				</div>
 			</div>
 
 			<!-- generate Elements of rank -->
-			<div class="animeView">
-				<div class="row">
-					<!-- TODO needs 6 anime from rank (first load rank 1) --------------------------------------------------------------------------------- ADD -->
-					@for (var i = 0; i <= 11; i++)
-					{
-						@if (i == 6)
-						{
-							<div class="col-12" style="height:1rem"></div>
-						}
-						<div class="col-2">
-							<div class="animeViewBtn">
-								@i
-							</div>
+			<div class="animeContentBox">
+				<!-- TODO needs 12 anime from rank (first load rank 1) --------------------------------------------------------------------------------- ADD -->
+				@for (var i = 1; i <= 12; i++)
+				{												<!-- TODO send Item ID to pache -->
+					<a class="animeElem curs-hand" asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+						<div class="animeImgElem" onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)">
+							<img class="a-img" src="~/img/test.jpg" />
+							<div class="opt-0 elem-hover-efk"></div>
+							<span class="supp-content-line">
+								<span class="supp-content-info">
+									<p>S1</p> <!--TODO num of Anime Seasons-->
+								</span>
+								<img src="~/img/all-available.png" /> <!--TODO show if available (some or all icon)-->
+							</span>
 						</div>
-					}
-				</div>
+						<p class="anime-name">Test text Test text Test text Test text Test text Test text Test text</p> <!-- TODO max 46 chars (43 for exra...) -->
+					</a>
+				}
 			</div>
 
 		</div>
 
 
 		<!-- TODO Side Box top watch count -->
-		<div class="col-2 animeRightSideBox">
+		<div class="col-2">
 
+			<div class="flex-r">
+				<button class="btn-show-watch-later" onclick="hiddeShowSwitchIDs('right-side-content', 'watch-later-content')">
+					<img src="/img/watch-later.png" />
+				</button>
+			</div>
+
+			<div class="right-side-box mrg-t5">
+
+				<div id="right-side-content">
+
+					@for (var i = 1; i <= 6; i++)
+					{
+						<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+							<!-- TODO send Item ID to pache-->
+							<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="animeSideBoxHover(this)" onmouseout="animeSideBoxHoverOff(this)">
+								<img src="/img/test.jpg" />
+								<p class="side-item-name">Name</p> <!-- TODO change name -->
+								<div class="w-100">
+									<p class="fl-l">Views:</p>
+									<span>@i</span>
+								</div>
+							</div>
+						</a>
+					}
+
+					<div class="right-side-item-background side-item-count">
+						<p>Folgen:</p><p id="all-anime-episodes"></p>
+					</div>
+					<div class="right-side-item-background side-item-count mrg-0">
+						<p>Animes:</p><p id="all-animes"></p>
+					</div>
+
+				</div>
+
+				<div id="watch-later-content" class="display-n">
+
+					<!-- TODO check if in watch later anime DB lines
+						if Yes put out all 6 show and them skroll down
+						at to last elem -> class"mrg-0"
+
+						if not put out Black
+					-->
+					<!--blank-->
+					<div class="right-side-item-background mrg-0">
+						<div class="elem-center">empty</div>
+					</div>
+
+				</div>
+
+			</div>		
 
 		</div>
 	</div>
 
 </div>
 
-
+<script src="~/js/site.js"></script>
 <script language="javascript" type="text/javascript">
-	document.getElementById("searchbar-elem").style.visibility = "visible";
-	document.getElementById("nav-setting-btn").style.visibility = "hidden";
+	searchBarOnOFF("searchbar-elem", true);
 </script>

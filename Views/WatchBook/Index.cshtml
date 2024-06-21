@@ -1,16 +1,16 @@
 ﻿
 
-<div class="row homeIteams">
-    <a id="homeBtnSwitch" class="col homeImgGap homeBtnEfk" asp-area="" asp-controller="WatchBook" asp-action="AnimeView">
-        <img class="col-md-12 homeBtnImg" src="/img/AnimeButton.jpg" />
+<div class="home-container">
+    <a asp-controller="WatchBook" asp-action="MovieView">  <!-- TODO load img form DB -->
+        <img src="/img/MovieButton.jpg" />
     </a>
-    <a class="col homeImgGap homeBtnEfk" asp-area="" asp-controller="WatchBook" asp-action="MovieView">
-        <img class="col-md-12 homeBtnImg" src="/img/MovieButton.jpg" />
+    <a asp-controller="WatchBook" asp-action="AnimeView">
+        <img src="/img/AnimeButton.jpg" />
     </a>
 </div>
 
 
+<script src="~/js/site.js"></script>
 <script language="javascript" type="text/javascript">
-    document.getElementById("searchbar-elem").style.visibility = "hidden";
-    document.getElementById("nav-setting-btn").style.visibility = "visible";
+    searchBarOnOFF("searchbar-elem", false);
 </script>

@@ -1,18 +1,37 @@
 /*-----------------------------------------------------------------
                             Base html
 -----------------------------------------------------------------*/
-html {
-    font-size: 14px;
-    background-color: #0e0e0e;
-}
-
 @media (min-width: 768px) {
     html {
         font-size: 16px;
     }
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+    background-color: #1c1c1c;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    background-color: #010101;
+}
+
 html {
+    font-size: 14px;
+    background-color: #0e0e0e;
     position: relative;
     min-height: 100%;
 }
@@ -20,20 +39,73 @@ html {
 body {
     background-color: transparent;
     color: white;
+    position: relative;
 }
 
 header {
     background-color: #1c1c1c;
+    width: 100%;
 }
+
+p {
+    margin: 0;
+}
+
+select {
+    overflow-y: auto;
+    background: #1c1c1c;
+    border: solid 1px #777;
+    border-radius: 5px;
+    color: #777;
+}
+option:hover {
+    background-color: #2e2e2e;
+    color: #ccc;
+}
+
 
 input:focus {
     outline: none;
 }
 
 a:hover {
-    color: #999;
+    color: #8c5ece;
 }
 
+/*
+    color:
+
+    Purple
+    #c4ace6     ***     (elems border/ backgrount)
+    #a885da     **      (elems klick text)
+    #8c5ece     *       (elems klick hover text)
+    #5a2e98
+
+
+    Dark back
+    #1c1c1c     **      ()
+    #0e0e0e     *       (base backrount)
+    #010101             (back if you neet the nather tow)
+
+    Colors
+    #ddd        **
+    #ccc        *
+
+*/
+
+.btnStyle {
+    color: #ddd;
+    background: #1c1c1c;
+    border-radius: 5px;
+    border: none;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+.btnStyle:hover {
+    background: #2e2e2e;
+}
 
 /*-----------------------------------------------------------------
                               Nav Bar
@@ -64,48 +136,35 @@ a:hover {
 
 
 /*-----------------------------------------------------------------
-                         Search Bar
+                             inputs
 -----------------------------------------------------------------*/
-.nav-searchbar {
-    border: none;
-    padding: 5px 10px;
-}
 
-#genres, #year, #sortBy {
-    visibility: hidden;
-    margin-top: 5px;
-    transition: visibility 0s, opacity 0.2s linear;
-    opacity: 0;
-}
-
-#genresSelect, #yearSelect,
-#sortBySelect, #searchSub,
-#inputSearch {
-    float: left;
-}
-
-#inputSearch {
-    padding: 2px 10px;
-}
-
-.searchBar {
-    border: none;
-    margin-left: 0.5rem;
-}
-
-.formSelectBox {
-    position: absolute;
-    padding: 5px 10px;
-    margin: 5px 9px;
-    width: 600px;
-}
-
-.formSelectBox ul {
-    list-style: none;
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
     margin: 0;
-    padding: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
+textarea {
+    outline: none;
+}
+textarea,
+#add-new-row input {
+    background: #1c1c1c;
+    border-radius: 5px;
+    border: none;
+    color: #777777;
+}
+textarea:focus,
+#add-new-row input:focus {
+    background-color: #2e2e2e;
+    color: #ccc;
+    border: none;
+}
+
+#add-new-row input[type="checkbox"],
 .formSelectBox input[type="checkbox"] {
     appearance: none;
     float: left;
@@ -114,12 +173,13 @@ a:hover {
     width: 1em;
     height: 1em;
     border: 0;
-    border-radius: 5px;
+    border-radius: 3px;
     display: grid;
     place-content: center;
     background-color: #777;
     transform: translateY(4px);
 }
+#add-new-row input[type="checkbox"]::before,
 .formSelectBox input[type="checkbox"]::before {
     content: "";
     width: 0.65em;
@@ -130,8 +190,45 @@ a:hover {
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
+#add-new-row input[type="checkbox"]:checked::before,
 .formSelectBox input[type="checkbox"]:checked::before {
-  transform: scale(1);
+    transform: scale(1);
+}
+
+
+/*-----------------------------------------------------------------
+                         Search Bar
+-----------------------------------------------------------------*/
+.nav-searchbar {
+    border: none;
+    padding: 5px 10px;
+}
+
+#genres, #year, #sortBy {
+    margin-top: 5px;
+    position: absolute;
+    padding: 5px 10px;
+}
+
+#genresSelect, #yearSelect,
+#sortBySelect, #searchSub,
+#inputSearch {
+    float: left;
+    margin-left: 10px;
+}
+
+#inputSearch {
+    padding: 2px 10px;
+}
+
+.searchBar {
+    border: none;
+}
+
+.formSelectBox ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .formSelectElement {
@@ -139,110 +236,263 @@ a:hover {
     float: left;
     color: #777777;
 }
+#sortBy .formSelectElement {
+    float: none;
+    width: 100%;
+}
+
 
 /*-----------------------------------------------------------------
-                         Anime Movie style
+                         Content contayner
 -----------------------------------------------------------------*/
-@media (min-width: 105rem) {
+@media (min-width: 1800px) {
     .contentBody {
-        max-width: 105rem;
+        max-width: 1800px;
+    }
+}
+
+@media (max-width: 1850px) {
+    .contentBody {
+        min-width: 1800px;
     }
 }
 
 .contentBody {
-    margin-top: 2rem;
+    margin-top: 20px;
+    margin-bottom:40px;
 }
 
 .contentNavStl {
     background-color: transparent;
     margin-bottom: 0.5rem;
-    color: white;
+    color: #ddd;
     border: 0;
+}
+
+.supp-content-line {
+    background: rgba(0, 0, 0, .7);
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    padding: 4px;
+    height: 25px;
+    width: 100%;
+    top: 292px;
+    left: 0;
+}
+.supp-content-line img {
+    float: right;
+}
+
+.supp-content-info {
+    overflow: hidden;
+    border-radius: 2px;
+    float: left;
+}
+
+.supp-content-info p {
+    background-color: #502987;
+    transform: skew(345deg);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    height: 18px;
+    width: 30px;
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
+    left: -4px;
+    color: #ccc;
 }
 
 
 /*-----------------------------------------------------------------
                             Home View
 -----------------------------------------------------------------*/
-.homeBtnImg {
-    height: 73vh;
-    border-radius: 10px;
+/*NEw*/
+.home-container {
+    padding: 40px 0;
+    display: flex;
 }
 
-.homeImgGap {
+.home-container a {
+    width: 50%;
     padding: 0;
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-.homeBtnEfk :not(:hover) {
-    -webkit-transform: translateY(0.2em);
-    -moz-transform: translateY(0.2em);
-    -o-transform: translateY(0.2em);
-    transform: translateY(0.2em);
+    margin: 0 6px;
+    display: flex;
+    -webkit-transform: translateY(3px);
+    -moz-transform: translateY(3px);
+    -o-transform: translateY(3px);
+    transform: translateY(3px);
     transition: 0.45s;
 }
 
-.homeBtnEfk :hover {
-    -webkit-transform: translateY(-0.2em);
-    -moz-transform: translateY(-0.2em);
-    -o-transform: translateY(-0.2em);
-    transform: translateY(-0.2em);
+.home-container a:hover {
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+    transform: translateY(-3px);
     transition: 0.45s;
 }
 
-.homeIteams {
-    padding-top: 5rem;
+.home-container img {
+    width: 100%;
 }
+
 
 /*-----------------------------------------------------------------
                             Anime View
 -----------------------------------------------------------------*/
-
-.animeViewBtn {
-    height: 19em;
-    border-radius: 10px;
-    border: solid #3c3c3c 2px;
+.animeContentBox {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .rankMainControll {
     display: block;
     cursor: default;
     overflow: auto;
-}
-
-.rankControll {
-    color: #777777; 
-    background: #1c1c1c;
-    border-radius: 5px;
-    -webkit-transition: background-color 0.5s ease-out;
-    -moz-transition: background-color 0.5s ease-out;
-    -o-transition: background-color 0.5s ease-out;
-    transition: background-color 0.5s ease-out;
-}
-
-.rankControll:hover {
-    background: #2e2e2e;
+    margin-left: 13px;
+    margin-right: 14px;
 }
 
 .rankControllName {
     float: left;
-    color: #777777;
+    color: #ddd;
     font-weight: 500;
+    font-size: 19px;
 }
 
-.animeRightSideBox {                                       /*-------------------------------DELEAT-------------------------------*/
-    border: solid #3c3c3c 2px;
+.animeElem {
+    width: 220px;
+    height: 373px;
+    padding: 0;
+    margin: 5px 13px;
+    color: #ccc;
+    text-decoration: none;
+}
+.animeElem:hover {    
+    color: #8c5ece;
+    transition: 0.2s;
+}
+
+.animeImgElem {
+    width: 100%;
+    height: 85%;
+    position: relative;
+    vertical-align: top;
+    display: inline-block;
+    opacity: 1;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.a-img {
+    vertical-align: top;
+    position: absolute;
+    overflow: hidden;
+    border: 0 none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
+}
+.animeImgElem div {
+    background: rgba(0, 0, 0, .7);
+    position: absolute;
+    height: 292px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    transition: all .3s ease;
+    border-radius: 5px 5px 0 0;
+}
+
+/*-----------------------------------------------------------------
+                       Anime and Movie View
+-----------------------------------------------------------------*/
+.btn-show-watch-later {
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    transition: 0.3s;
+}
+
+.btn-show-watch-later:hover {
+    background: #2e2e2e;
+}
+
+.btn-show-watch-later img {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 3px;
+}
+
+.right-side-box {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #010101;
+}
+
+.right-side-box a {
+    text-decoration: none;
+}
+
+.right-side-item-background {
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    margin: 0 0 5px 0;
+    color: #ccc;
+    transition: 0.5s;
+}
+
+.right-side-item-background-2 {
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    margin: 0 0 5px 0;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.side-item-count p {
+    padding-left: 10px;
+}
+
+.side-item-name {
+    margin: 0px 2px;
+    transition: 0.3s;
+}
+
+.right-side-item {
+    height: 115px;
+}
+
+.right-side-item img {
+    height: 115px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 10px;
+}
+
+.right-side-item p {
+    margin: 0 5px 0 0;
+    padding: 0;
 }
 
 
 /*-----------------------------------------------------------------
                             Movie View
 -----------------------------------------------------------------*/
-
 .control-line {
-    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    margin-left: 26px;
+}
+
+.control-line button {
+    margin: 0px 2px 8px;
 }
 
 .movie-elem {
@@ -251,11 +501,9 @@ a:hover {
     position: relative;
     vertical-align: top;
     display: inline-block;
-    width: 214px;
+    width: 200px;
     height: 317px;
-    margin-right: 9px;
-    margin-left: 9px;
-    margin-bottom: 15px;
+    margin: 0px 0px 15px 7px;
     opacity: 1;
     transition: all .5s ease;
 }
@@ -273,19 +521,16 @@ a .movie-elem :hover {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 4px;
-    background-clip: padding-box;
-    box-shadow: 0 1px 4px rgba(0,0,0,.3), 0 0 40px rgba(0,0,0,.1) inset;
+    border-radius: 5px;
 }
 .movie-text {
     background: rgba(0, 0, 0, .7);
-    border-radius: 4px 4px 0 0;
+    border-radius: 5px 5px 0 0;
     position: absolute;
     height: 292px;
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0;
     z-index: 100;
     text-align: center;
     transition: all .3s ease;
@@ -298,56 +543,270 @@ a .movie-elem :hover {
     top: 100px;
 }
 
-.movie-elem span {
-    background: rgba(0, 0, 0, .7);
-    border-radius: 0 0 4px 4px;
-    position: absolute;
-    padding: 5px;
-    height: 25px;
-    width: 100%;
-    top: 292px;
-    left: 0;
-}
-.movie-elem span img {
-    position: relative;
-    float: right;
+.movieElemContainer {
+    margin-top: 10px;
 }
 
-.movie-elem span p {
-    position: relative;
-    font-size: 14px;
-    float: left;
-    top: -2px;
-    margin-left: 1px;
+#movie-FSK {
+    margin-right: 18px;
 }
+
+.movie-side-buffer {
+    height: 40px;
+    width: 100%;
+}
+
 
 /*-----------------------------------------------------------------
                             Settings View
 -----------------------------------------------------------------*/
+.settings {
+    color: #ccc;
+}
+.settings p {
+    font-size: 19px;
+    font-weight: bold;
+    margin:5px 8px 5px 0;
+}
+
 .setting-title {
     margin-bottom: 20px;
 }
 
-.setting-title h3,
-.setting-title h4{
-    text-align: center;
-    color: #777777;
-}
-
-.settig-l {
-    margin-bottom: 5px;
-}
-
-.settig-l h4 {
-    float: right;
-    color: #777777;
-}
-
-.settig-r button {
+.settings button {
     border: none;
     border-radius: 1px;
 }
 
 .settings input {
     border: none;
+}
+
+#setting-homescreen {
+    width: 30%;
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    padding: 10px;
+}
+#setting-homescreen span {
+    position: absolute;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 19px;
+    width: 100%;
+}
+#setting-homescreen img:hover {
+    opacity: 0.1;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#setting-homescreen .home-container {
+    padding: 0;
+}
+
+
+
+/*-----------------------------------------------------------------
+                  AddNew View / Item View
+-----------------------------------------------------------------*/
+/*Both*/
+
+#add-new-buy,
+#item-buy {
+    display: flex;
+    margin: 10px 0;
+}
+
+#add-new-img img,
+#item-img img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+/*Item View*/
+
+#item-player-row {
+    width: 1094px;
+    margin-left: 10px;
+}
+
+#item-player-container,
+#item-sidebar-container {
+    padding: 0 10px;
+    color: #777;
+}
+
+#item-palyer-episodes {
+    width: 280px;
+    background: #010101;
+    border-radius: 5px;
+}
+#item-player {
+    padding-bottom: 10px;
+}
+#item-player img {
+    height: 602px;
+    width: 100%;
+}
+
+#item-img {
+    width: 20%;
+}
+
+#item-sidebar {
+    width: 376px;
+}
+
+#item-name {
+    color: #ddd;
+    font-size: 2rem;
+}
+
+#item-buy p {
+    background-color: #777;
+    color: #0e0e0e;
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+#item-buy-none {
+    height: 18px;
+    width: 28px;
+    border: solid 2px #777;
+    border-radius: 2px;
+}
+
+#item-info {
+    width: 80%;
+    padding-left: 10px;
+    font-size: 13.5px;
+}
+
+#item-text {
+    line-height: 1.4rem;
+}
+
+.item-text-limit {
+    overflow: hidden;
+    height: 78px;
+}
+
+#item-info-l {
+    width: 40%;
+}
+
+#item-info-r {
+    width: 60%;
+}
+
+#item-family-row {
+    padding: 10px 10px 0;
+}
+
+.item-family {
+    margin-right: 10px;
+    border: solid 3px #1c1c1c;
+    width: 11.5%;
+    height: 8rem;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 19px;
+    position: relative;
+    opacity: .5;
+    transition:.5s;
+    -webkit-transition:.5s;
+}
+.item-family:hover {
+    opacity: 1;
+    border: solid 3px #5a2e98;
+}
+.item-family img {
+    position: absolute;
+    width: 100%;
+    top: -8rem;
+}
+.item-family p {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    line-height: 8rem;
+    font-size: 19px;
+}
+
+
+/*AddNew View*/
+#add-new-row {
+    color: #ccc;
+    width: 45%;
+}
+
+#add-new-row label {
+    margin-right: 10px;
+}
+
+#add-new-info {
+    width: 80%;
+    padding-left: 10px;
+}
+
+.add-new-frontText {
+    width: 70px;
+}
+
+#add-new-name {
+    margin-bottom: 10px;
+}
+
+#add-new-img {
+    width: 27%;
+}
+
+#add-new-name,
+#add-new-original-name {
+    display: flex;
+}
+
+#add-new-text {
+    width: 100%;
+    min-height: 90px;
+}
+
+#add-new-titel {
+    font-size: 19px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+#add-new-info-r,
+#add-new-info-l {
+    width: 50%;
+}
+
+#add-new-info-r input {
+    color-scheme: dark;
+}
+
+#add-new-box {
+    margin-top: 5px;
+    position: absolute;
+    padding: 5px 10px
+}
+
+#addGenres {
+    padding: 5px 10px;
+    margin-top: 5px;
+    width: 280px;
+    position: absolute;
+}
+#addGenres ul {
+    padding: 0;
+    margin: 0;
+    flex-flow: wrap;
+}
+#addGenres li {
+    list-style: none;
+    display: flex;
+    width: 130px;
 }

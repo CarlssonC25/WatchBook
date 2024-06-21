@@ -1,10 +1,37 @@
 ﻿/*all*/
+.mrg-0 {
+    margin: 0px;
+}
+
 .mrg-l10 {
     margin-left: 10px;
 }
 
 .mrg-l6 {
     margin-left: 6px;
+}
+
+.mrg-r9 {
+    margin-right: 9px;
+}
+
+.mrg-r10 {
+    margin-right: 10px;
+}
+
+.mrg-t7 {
+    margin-top: 7px;
+}
+
+.mrg-t5 {
+    margin-top: 5px;
+}
+.mrg-t10 {
+    margin-top: 10px;
+}
+
+.mrg-b10 {
+    margin-bottom: 10px;
 }
 
 .pad-0 {
@@ -15,12 +42,56 @@
     float: right;
 }
 
-.tx-al-cent{
+.fl-l {
+    float: left;
+}
+
+.tx-al-cent {
     text-align: center;
 }
 
 .tx-al-r {
     text-align: right;
+}
+
+.txt-light {
+    color: #ddd;
+}
+
+.opt-0 {
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.display-n {
+    display: none;
+}
+
+.height-50 {
+    height:50px;
+}
+
+.curs-hand:hover {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-r {
+    display: flex;
+    justify-content: right;
+}
+
+.elem-center {
+    display: flex;
+    justify-content: center;
+}
+
+.font-thick {
+    font-weight:500;
+    margin-right: 5px;
 }
 
 
@@ -70,4 +141,17 @@
 .elemActionStyle-2:hover {
     background: #2e2e2e;
     color: #777777;
+}
+
+
+
+
+
+.click-text {
+    cursor: pointer;
+    color: #a885da;
+    text-decoration: none
+}
+.click-text:hover{
+    color: #c4ace6;
 }
