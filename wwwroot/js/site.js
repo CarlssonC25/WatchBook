@@ -38,13 +38,16 @@ function hiddeShowOnID(id) {
 
 function addRemoveClassToElemAtID(id, clas) {
     var elem = document.getElementById(id);
+    addRemoveClassToElemAtElem(elem, clas);
+}
+
+function addRemoveClassToElemAtElem(elem, clas) {
 
     if (elem.classList.contains(clas)) {
         elem.classList.remove(clas);
     } else {
         elem.classList.add(clas);
     }
-
 }
 
 
@@ -147,6 +150,26 @@ function sideBoxHoverOff(elem) {
     elem.classList.add("right-side-item-background");
 }
 
+//--------------------------------------------------------------------------
+//Movie
+//--------------------------------------------------------------------------
+
+function movieShowWatchLaterBox() {
+    addRemoveClassToElemAtID("movie-cont-l", "col-10");
+    addRemoveClassToElemAtID("movie-cont-r", "col-2");
+    addRemoveClassToElemAtID("movie-cont-r", "display-n");
+    movieElmesSmall();
+}
+
+function movieElmesSmall() {
+    var elems = document.getElementsByClassName("movie-elem");
+
+    Array.prototype.forEach.call(
+        elems, elem => {
+            addRemoveClassToElemAtElem(elem, "movie-elem-small");
+        }
+    );
+}
 
 //--------------------------------------------------------------------------
 //Item View

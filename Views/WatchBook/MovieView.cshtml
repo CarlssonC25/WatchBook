@@ -2,17 +2,21 @@
 
 
 	<div class="row">
-		<div class="col-10">
+		<div id="movie-cont-l">
 
 			<div class="elem-center mrg-b10">
 				<p class="rankControllName">Movies</p>
 			</div>
 
 			<div>
-				<div class="fl-r">
+				<div class="fl-r flex-r">
 					<a asp-area="" asp-controller="WatchBook" asp-action="AddNewView">
-						<button class="btnStyle mrg-r9">+</button> <!-- TODO rederect on btn click and sent var movie-->
+						<button class="btnStyle mrg-r5">+</button> <!-- TODO rederect on btn click and sent var movie-->
 					</a>
+
+					<button class="btn-show-watch-later mrg-r9" onclick="movieShowWatchLaterBox()">
+						<img src="/img/watch-later.png" />
+					</button>
 				</div>
 
 				<dív class="control-line">
@@ -60,52 +64,44 @@
 
 		</div>
 
-		<div class="col-2">
-
-			<div class="movie-side-buffer mrg-b10"></div>
-
-			<div class="flex-r">
-				<button class="btn-show-watch-later" onclick="hiddeShowSwitchIDs('right-side-content', 'watch-later-content')">
-					<img src="/img/watch-later.png" />
-				</button>
-			</div>
-
-			<div class="right-side-box mrg-t5">
-
-				<div id="right-side-content">
-
-					@for (var i = 1; i <= 3; i++)
-					{
-						<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
-							<!-- TODO send Item ID to pache-->
-							<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="sideBoxHover(this)" onmouseout="sideBoxHoverOff(this)">
-								<img src="/img/test.jpg" />
-								<p class="side-item-name">Name</p> <!-- TODO change name -->
-								<div class="w-100">
-									<p class="fl-l">Views:</p>
-									<span>@i</span>
-								</div>
-							</div>
-						</a>
-					}
-
-					<div class="right-side-item-background side-item-count mrg-0">
-						<p>Movies:</p><p id="all-movies"></p>
-					</div>
-
-				</div>
-
-				<div id="watch-later-content" class="display-n">
+		<div id="movie-cont-r" class="display-n">
+			<div class="right-side-box">
+				
+				<div id="watch-later-content">
 
 					<!-- TODO check if in watch later movies DB lines
 						if Yes put out all 6 show and them skroll down
 						at to last elem -> class"mrg-0"
 
-						if not put out Black
+						if not put out <Black>
 					-->
-					<!--blank-->
-					<div class="right-side-item-background mrg-0">
+
+					<div id="right-side-content">
+
+						<!-- TODO put all Watch Later out -->
+						@for (var i = 1; i <= 3; i++)
+						{
+							<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+								<!-- TODO send Item ID to pache-->
+								<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="sideBoxHover(this)" onmouseout="sideBoxHoverOff(this)">
+									<img src="/img/test.jpg" />
+									<p class="side-item-name">Name</p> <!-- TODO  -->
+									<div class="w-100">
+										<p id="watch-later-text" class="fl-l"></p> <!-- TODO add txt form DB -->
+									</div>
+								</div>
+							</a>
+						}
+
+					</div>
+
+					<!--   <Blank>   -->
+					<div class="right-side-item-background">
 						<div class="elem-center">empty</div>
+					</div>
+
+					<div class="right-side-item-background side-item-count mrg-0">
+						<p>Movies:</p><p id="all-movies"></p>
 					</div>
 
 				</div>

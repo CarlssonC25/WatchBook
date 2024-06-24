@@ -432,6 +432,7 @@ textarea:focus,
     padding: 5px;
     border-radius: 5px;
     background-color: #010101;
+    margin-top: 73px;
 }
 
 .right-side-box a {
@@ -487,7 +488,7 @@ textarea:focus,
 .control-line {
     display: flex;
     justify-content: center;
-    margin-left: 26px;
+    margin-left: 63px;
 }
 
 .control-line button {
@@ -500,16 +501,26 @@ textarea:focus,
     position: relative;
     vertical-align: top;
     display: inline-block;
-    width: 200px;
+    width: 13.53%;
     height: 317px;
     margin: 0px 0px 15px 7px;
     opacity: 1;
-    transition: all .5s ease;
 }
 
 a .movie-elem :hover {
     color: #b8b8b8;
 }
+
+.movie-elem-small {
+    height: 292px;
+}
+.movie-elem-small .movie-text {
+    height: 267px;
+}
+.movie-elem-small .supp-content-line{
+    top: 267px;
+}
+
 
 .movie-img {
     vertical-align: top;
@@ -547,7 +558,7 @@ a .movie-elem :hover {
 }
 
 #movie-FSK {
-    margin-right: 18px;
+    margin-left: 8px;
 }
 
 .movie-side-buffer {
