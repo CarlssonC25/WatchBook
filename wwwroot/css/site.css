@@ -176,7 +176,6 @@ textarea:focus,
     border-radius: 3px;
     display: grid;
     place-content: center;
-    background-color: #777;
     transform: translateY(4px);
 }
 #add-new-row input[type="checkbox"]::before,

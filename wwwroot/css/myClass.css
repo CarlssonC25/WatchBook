@@ -75,6 +75,14 @@
     cursor: pointer;
 }
 
+.back-col-none {
+    background-color: transparent;
+}
+
+.back-col-777 {
+    background-color: #777;
+}
+
 .flex {
     display: flex;
 }

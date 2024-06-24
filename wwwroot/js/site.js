@@ -77,14 +77,8 @@ function showSearchSelect(searchID) {
 }
 
 function checkboxBackColor(id) {
-    var myElem = document.getElementById(id);
-    var myElemStyle = window.getComputedStyle(myElem); // TODO use class (dont set elem style)
-    if (myElemStyle.backgroundColor === "rgb(119, 119, 119)") {
-        myElem.style.backgroundColor = "transparent";
-    }
-    else {
-        myElem.style.backgroundColor = "#777";
-    }
+    addRemoveClassToElemAtID(id, "back-col-none");
+    addRemoveClassToElemAtID(id, "back-col-777");
 }
 
 function checkOnlyOne(id, className) {

@@ -15,7 +15,7 @@
 							@for (var x = 0; x <= 11; x++)
 							{
 								<li class="formSelectElement">
-									<input type="checkbox" id="@x" onclick="checkboxBackColor(@x)" name="genre" value="@x" />
+									<input type="checkbox" id="@x" onclick="checkboxBackColor(@x)" name="genre" value="@x" class="back-col-777" />
 									<label for="@x">@x</label>
 								</li>
 							}
@@ -31,7 +31,7 @@
 							@for (var x = 20; x <= 31; x++)
 							{
 								<li class="formSelectElement">
-									<input type="checkbox" id="@x" onclick="checkboxBackColor(@x)" name="yearSelect" value="@x" />
+									<input type="checkbox" id="@x" onclick="checkboxBackColor(@x)" name="yearSelect" value="@x" class="back-col-777" />
 									<label for="@x">@x</label>
 								</li>
 							}
@@ -45,11 +45,11 @@
 					<div id="sortBy" class="formSelectBox elemColorStyle-1 searchBox display-n">
 						<ul>
 							<li class="formSelectElement">
-								<input type="checkbox" class="checkboxSearch" id="releaseDate" onclick="checkOnlyOne('releaseDate', 'checkboxSearch')" name="sort" value="releaseDate" />
+								<input type="checkbox" class="checkboxSearch back-col-777" id="releaseDate" onclick="checkOnlyOne('releaseDate', 'checkboxSearch')" name="sort" value="releaseDate" />
 								<label for="releaseDate">Release Date</label>
 							</li>
 							<li class="formSelectElement">
-								<input type="checkbox" class="checkboxSearch" id="az" onclick="checkOnlyOne('az', 'checkboxSearch');" name="sort" value="az" />
+								<input type="checkbox" class="checkboxSearch back-col-777" id="az" onclick="checkOnlyOne('az', 'checkboxSearch');" name="sort" value="az" />
 								<label for="az">A-Z</label>
 							</li>
 						</ul>
