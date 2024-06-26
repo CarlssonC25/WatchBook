@@ -1,114 +1,113 @@
-﻿<div class="container-fluid contentBody">
+﻿<div class="container-fluid contentBody flex">
 
 
-	<div class="row">
-		<div id="movie-cont-l">
+	<div id="movie-cont-l" class="width-99">
 
-			<div class="elem-center mrg-b10">
-				<p class="rankControllName">Movies</p>
+		<div class="elem-center mrg-b10">
+			<p class="rankControllName">Movies</p>
+		</div>
+
+		<div>
+			<div class="fl-r flex-r">
+				<a class="mrg-r5" asp-area="" asp-controller="WatchBook" asp-action="AddNewView">
+					<button class="btnStyle">+</button> <!-- TODO rederect on btn click and sent var movie-->
+				</a>
+
+				<button class="btn-show-watch-later mrg-r9" onclick="movieShowWatchLaterBox()">
+					<img src="/img/watch-later.png" />
+				</button>
 			</div>
 
-			<div>
-				<div class="fl-r flex-r">
-					<a asp-area="" asp-controller="WatchBook" asp-action="AddNewView">
-						<button class="btnStyle mrg-r5">+</button> <!-- TODO rederect on btn click and sent var movie-->
-					</a>
-
-					<button class="btn-show-watch-later mrg-r9" onclick="movieShowWatchLaterBox()">
-						<img src="/img/watch-later.png" />
-					</button>
-				</div>
-
-				<dív class="control-line">
-					<button class="btnStyle" onclick="">˂˂</button> <!-- TODO previousPage on click events -->
-					<button class="btnStyle" onclick="">˂</button> <!-- TODO -->
-					<!--TODO set nav num -->
-					@for (var i = 0; i < 6; i++)
-					{
-						<button class="btnStyle" onclick="">@i</button> <!-- TODO -->
-					}
-					<button class="btnStyle" onclick="">˃</button> <!-- TODO -->
-					<button class="btnStyle" onclick="">˃˃</button> <!-- TODO -->
-
-				</dív>
-			</div>
-
-			<div class="movieElemContainer">
-				<!--TODO add data for DB -->
-				@for (var i = 0; i < 14; i++)
+			<dív class="control-line">
+				<button class="btnStyle" onclick="">˂˂</button> <!-- TODO previousPage on click events -->
+				<button class="btnStyle" onclick="">˂</button> <!-- TODO -->
+				<!--TODO set nav num -->
+				@for (var i = 0; i < 6; i++)
 				{
-					<a class="movie-elem" onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)" asp-area="" asp-controller="WatchBook" asp-action="ItemView">
-						<img src="~/img/test.jpg" class="movie-img" />
-						<div class="movie-text opt-0 elem-hover-efk">
-							<p>Test</p>
-						</div>
-						<span class="supp-content-line">
-							<span class="supp-content-info">
-								<p>1</p> <!--TODO num of films-->
-							</span>
-							<img src="~/img/all-available.png" /> <!--TODO show if available (some or all icon)-->
-						</span>
-					</a>
+					<button class="btnStyle" onclick="">@i</button> <!-- TODO -->
 				}
-			</div>
+				<button class="btnStyle" onclick="">˃</button> <!-- TODO -->
+				<button class="btnStyle" onclick="">˃˃</button> <!-- TODO -->
 
-			<div id="movie-FSK">
-				<select name="fsk" onfocus='this.size=5;' onblur='this.size=0;' onchange='this.size=1; this.blur();'>
-					<option value="favoriten">Favorites</option>
-					<option value="6">+6</option>
-					<option value="12">+12</option>
-					<option value="16">+16</option>
-					<option value="18">+18</option>
-				</select>
-			</div>
-
+			</dív>
 		</div>
 
-		<div id="movie-cont-r" class="display-n">
-			<div class="right-side-box">
+		<div class="movieElemContainer">
+
+			<!--TODO add data for DB -->
+			@for (var i = 0; i < 14; i++)
+			{
+				<a class="movie-elem" onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)" asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+					<img src="~/img/test.jpg" class="movie-img" />
+					<div class="movie-text opt-0 elem-hover-efk">
+						<p>Test</p>
+					</div>
+					<span class="supp-content-line">
+						<span class="supp-content-info">
+							<p>1</p> <!--TODO num of films-->
+						</span>
+						<img src="~/img/all-available.png" /> <!--TODO show if available (some or all icon)-->
+					</span>
+				</a>
+			}
+		</div>
+
+		<div id="movie-FSK">
+			<select name="fsk" onfocus='this.size=5;' onblur='this.size=0;' onchange='this.size=1; this.blur();'>
+				<option value="favoriten">Favorites</option>
+				<option value="6">+6</option>
+				<option value="12">+12</option>
+				<option value="16">+16</option>
+				<option value="18">+18</option>
+			</select>
+		</div>
+
+	</div>
+
+	<div id="movie-cont-r" class="width-01 mrg-l-25">
+		<div id="movie-cont-ru" class="right-side-box opt-0">
 				
-				<div id="watch-later-content">
+			<div id="watch-later-content">
 
-					<!-- TODO check if in watch later movies DB lines
-						if Yes put out all 6 show and them skroll down
-						at to last elem -> class"mrg-0"
+				<!-- TODO check if in watch later movies DB lines
+					if Yes put out all 6 show and them skroll down
+					at to last elem -> class"mrg-0"
 
-						if not put out <Black>
-					-->
+					if not put out <Black>
+				-->
 
-					<div id="right-side-content">
+				<div id="right-side-content">
 
-						<!-- TODO put all Watch Later out -->
-						@for (var i = 1; i <= 3; i++)
-						{
-							<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
-								<!-- TODO send Item ID to pache-->
-								<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="sideBoxHover(this)" onmouseout="sideBoxHoverOff(this)">
-									<img src="/img/test.jpg" />
-									<p class="side-item-name">Name</p> <!-- TODO  -->
-									<div class="w-100">
-										<p id="watch-later-text" class="fl-l"></p> <!-- TODO add txt form DB -->
-									</div>
+					<!-- TODO put all Watch Later out -->
+					@for (var i = 1; i <= 3; i++)
+					{
+						<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+							<!-- TODO send Item ID to pache-->
+							<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="sideBoxHover(this)" onmouseout="sideBoxHoverOff(this)">
+								<img src="/img/test.jpg" />
+								<p class="side-item-name">Name</p> <!-- TODO  -->
+								<div class="w-100">
+									<p id="watch-later-text" class="fl-l"></p> <!-- TODO add txt form DB -->
 								</div>
-							</a>
-						}
+							</div>
+						</a>
+					}
 
-					</div>
+				</div>
 
-					<!--   <Blank>   -->
-					<div class="right-side-item-background">
-						<div class="elem-center">empty</div>
-					</div>
+				<!--   <Blank>   -->
+				<div class="right-side-item-background">
+					<div class="elem-center">empty</div>
+				</div>
 
-					<div class="right-side-item-background side-item-count mrg-0">
-						<p>Movies:</p><p id="all-movies"></p>
-					</div>
-
+				<div class="right-side-item-background side-item-count mrg-0">
+					<p>Movies:</p><p id="all-movies"></p>
 				</div>
 
 			</div>
 
 		</div>
+
 	</div>
 
 </div>

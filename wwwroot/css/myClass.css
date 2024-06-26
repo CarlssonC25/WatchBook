@@ -3,12 +3,16 @@
     margin: 0px;
 }
 
+.mrg-l6 {
+    margin-left: 6px;
+}
+
 .mrg-l10 {
     margin-left: 10px;
 }
 
-.mrg-l6 {
-    margin-left: 6px;
+.mrg-l-25 {
+    margin-left: -25px;
 }
 
 .mrg-r5 {
@@ -64,7 +68,7 @@
 
 .opt-0 {
     opacity: 0;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .display-n {
@@ -75,16 +79,32 @@
     height:50px;
 }
 
+.width-01 {
+    width: 0.00000001%;
+}
+
+.width-16 {
+    width: 16.66666667%;
+}
+
+.width-83 {
+    width: 83.33333333%;
+}
+
+.width-99 {
+    width: 99.99999999%;
+}
+
 .curs-hand:hover {
     cursor: pointer;
 }
 
 .back-col-none {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .back-col-777 {
-    background-color: #777;
+    background-color: #777 !important;
 }
 
 .flex {

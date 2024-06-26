@@ -63,6 +63,9 @@ option:hover {
     color: #ccc;
 }
 
+input[type="checkbox"] {
+    cursor: pointer;
+}
 
 input:focus {
     outline: none;
@@ -277,6 +280,7 @@ textarea:focus,
     width: 100%;
     top: 292px;
     left: 0;
+    transition: 0.3s;
 }
 .supp-content-line img {
     float: right;
@@ -432,7 +436,7 @@ textarea:focus,
     padding: 5px;
     border-radius: 5px;
     background-color: #010101;
-    margin-top: 73px;
+    margin-top: 74px;
 }
 
 .right-side-box a {
@@ -481,6 +485,10 @@ textarea:focus,
     padding: 0;
 }
 
+#movie-cont-r,
+#movie-cont-l {
+    transition: 0.5s;
+}
 
 /*-----------------------------------------------------------------
                             Movie View
@@ -488,7 +496,7 @@ textarea:focus,
 .control-line {
     display: flex;
     justify-content: center;
-    margin-left: 63px;
+    margin-left: 64px;
 }
 
 .control-line button {
@@ -501,10 +509,11 @@ textarea:focus,
     position: relative;
     vertical-align: top;
     display: inline-block;
-    width: 13.53%;
+    width: 13.52%;
     height: 317px;
-    margin: 0px 0px 15px 7px;
+    margin: 0 0.28% 15px 0.28%;
     opacity: 1;
+    transition: 0.3s;
 }
 
 a .movie-elem :hover {
@@ -513,6 +522,7 @@ a .movie-elem :hover {
 
 .movie-elem-small {
     height: 292px;
+    width: 13.504%;
 }
 .movie-elem-small .movie-text {
     height: 267px;
@@ -543,7 +553,7 @@ a .movie-elem :hover {
     left: 0;
     z-index: 100;
     text-align: center;
-    transition: all .3s ease;
+    transition: 0.3s;
 }
 
 .movie-text p{
@@ -558,7 +568,7 @@ a .movie-elem :hover {
 }
 
 #movie-FSK {
-    margin-left: 8px;
+    margin-left: 6px;
 }
 
 .movie-side-buffer {
@@ -566,11 +576,20 @@ a .movie-elem :hover {
     width: 100%;
 }
 
+#movie-cont-ru {
+    transition: 0.3s;
+}
+
+#movie-cont-r .right-side-item p {
+    position: fixed;
+    margin-left: 99px;
+}
+
 
 /*-----------------------------------------------------------------
                             Settings View
 -----------------------------------------------------------------*/
-.settings {
+    .settings {
     color: #ccc;
 }
 .settings p {

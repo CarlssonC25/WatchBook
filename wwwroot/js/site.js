@@ -155,9 +155,14 @@ function sideBoxHoverOff(elem) {
 //--------------------------------------------------------------------------
 
 function movieShowWatchLaterBox() {
-    addRemoveClassToElemAtID("movie-cont-l", "col-10");
-    addRemoveClassToElemAtID("movie-cont-r", "col-2");
-    addRemoveClassToElemAtID("movie-cont-r", "display-n");
+    addRemoveClassToElemAtID("movie-cont-l", "width-99");
+    addRemoveClassToElemAtID("movie-cont-l", "width-83");
+
+    addRemoveClassToElemAtID("movie-cont-r", "width-01");
+    addRemoveClassToElemAtID("movie-cont-r", "width-16");
+    addRemoveClassToElemAtID("movie-cont-r", "mrg-l-25");
+
+    addRemoveClassToElemAtID("movie-cont-ru", "opt-0");
     movieElmesSmall();
 }
 
