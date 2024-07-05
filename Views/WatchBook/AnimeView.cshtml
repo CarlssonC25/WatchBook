@@ -5,7 +5,7 @@
 						
 			<div class="rankMainControll animeSwitchRank">
 				<div style="overflow:auto;">
-					<a asp-area="" asp-controller="WatchBook" asp-action="AddNewView"> 
+					<a asp-controller="WatchBook" asp-action="AddAndEditView" asp-route-p="a">
 						<button class="btnStyle fl-r">+</button>  <!-- TODO rederect on btn click and sent var anime-->
 					</a>
 				</div>
@@ -62,7 +62,7 @@
 
 					@for (var i = 1; i <= 6; i++)
 					{
-						<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+						<a asp-controller="WatchBook" asp-action="ItemView">
 							<!-- TODO send Item ID to pache-->
 							<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="sideBoxHover(this)" onmouseout="sideBoxHoverOff(this)">
 								<img src="/img/test.jpg" />

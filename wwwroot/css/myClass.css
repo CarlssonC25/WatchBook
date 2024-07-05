@@ -72,7 +72,7 @@
 }
 
 .display-n {
-    display: none;
+    display: none !important;
 }
 
 .height-50 {

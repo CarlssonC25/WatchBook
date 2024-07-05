@@ -9,7 +9,7 @@
 
 		<div>
 			<div class="fl-r flex-r">
-				<a class="mrg-r5" asp-area="" asp-controller="WatchBook" asp-action="AddNewView">
+				<a class="mrg-r5" asp-controller="WatchBook" asp-action="AddAndEditView" asp-route-p="m">
 					<button class="btnStyle">+</button> <!-- TODO rederect on btn click and sent var movie-->
 				</a>
 
@@ -37,7 +37,7 @@
 			<!--TODO add data for DB -->
 			@for (var i = 0; i < 14; i++)
 			{
-				<a class="movie-elem" onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)" asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+				<a class="movie-elem" onmouseover="optElemHover(this)" onmouseout="optElemHoverOff(this)" asp-controller="WatchBook" asp-action="ItemView">
 					<img src="~/img/test.jpg" class="movie-img" />
 					<div class="movie-text opt-0 elem-hover-efk">
 						<p>Test</p>
@@ -53,7 +53,7 @@
 		</div>
 
 		<div id="movie-FSK">
-			<select name="fsk" onfocus='this.size=5;' onblur='this.size=0;' onchange='this.size=1; this.blur();'>
+			<select name="fsk" class="curs-hand" onfocus='this.size=5;' onblur='this.size=0;' onchange='this.size=1; this.blur();'>
 				<option value="favoriten">Favorites</option>
 				<option value="6">+6</option>
 				<option value="12">+12</option>
@@ -81,7 +81,7 @@
 					<!-- TODO put all Watch Later out -->
 					@for (var i = 1; i <= 3; i++)
 					{
-						<a asp-area="" asp-controller="WatchBook" asp-action="ItemView">
+						<a asp-controller="WatchBook" asp-action="ItemView">
 							<!-- TODO send Item ID to pache-->
 							<div class="right-side-item right-side-item-background" asp-area="" asp-controller="WatchBook" asp-action="ItemView" onmouseover="sideBoxHover(this)" onmouseout="sideBoxHoverOff(this)">
 								<img src="/img/test.jpg" />

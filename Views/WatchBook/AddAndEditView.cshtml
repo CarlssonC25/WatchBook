@@ -1,4 +1,10 @@
 ﻿<div class="container-fluid contentBody elem-center">
+
+    <!-- TODO 
+        if previous page is 
+            Anime => give all class movie-cc => class display-n
+            Movie => give all class anime-cc => class display-n
+    -->
     
     <div id="add-new-row">
 
@@ -12,7 +18,7 @@
 
             <div id="add-new-info">
                 <input id="add-new-name" type="text" placeholder="Name" />
-                <input id="add-new-original-name" type="text" placeholder="Original Name" /> 
+                <input id="add-new-original-name" class="anime-cc" type="text" placeholder="Original Name" />
 
                 <input id="addTo" type="hidden" value="" /> <!-- TODO if name exist set value too true -->
 
@@ -34,7 +40,7 @@
                 <div class="flex mrg-t10">
                     <div id="add-new-info-l">
 
-                        <div class="flex">
+                        <div class="flex movie-cc">
                             <p class="add-new-frontText">FSK:</p>
 
                             <input id="fsk6" class="addNewAgeCheckbox back-col-777" type="checkbox" onchange="setHiddenValue('addNewAge', 6)" onclick="checkOnlyOne('fsk6', 'addNewAgeCheckbox')" />
@@ -49,7 +55,7 @@
                             <input id="addNewAge" type="hidden" value="" />
                         </div>
 
-                        <div class="flex">
+                        <div class="flex anime-cc">
                             <p class="add-new-frontText">Country:</p>
 
                             <input id="japan" type="checkbox" class="add-new-country back-col-777" onchange="setHiddenValue('addNewCountry', 'japan')" onclick="checkOnlyOne('japan', 'add-new-country')" />
@@ -61,7 +67,7 @@
                             <input id="addNewCountry" type="hidden" value="" />
                         </div>
 
-                        <div class="flex">
+                        <div class="flex movie-cc">
                             <p class="add-new-frontText">Favourite:</p>
                             <input id="addNewFavourite" class="back-col-777" type="checkbox" onclick="checkboxBackColor('addNewFavourite')" />
                         </div>
@@ -97,11 +103,11 @@
                             <input id="addNewDate" type="date" />
                         </div>
 
-                        <div class="mrg-t5">
+                        <div class="mrg-t5 anime-cc">
                             <input id="addNewEpisodes" type="number" placeholder="Episodes" />
                         </div>
 
-                        <div class="mrg-t5">
+                        <div class="mrg-t5 anime-cc">
                             <input id="addNewRank" type="text" placeholder="Rank" />
                         </div>
 
@@ -120,3 +126,9 @@
         </div>
     </div>
 </div>
+
+
+<script src="~/js/site.js"></script>
+<script language="javascript" type="text/javascript"> //TODO fix javascipt funtion in html
+    pacheContentSwitch();
+</script>

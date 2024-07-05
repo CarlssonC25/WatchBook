@@ -34,7 +34,7 @@ namespace WatchBook.Controllers
             return View(); 
         }
 
-        public IActionResult AddNewView()
+        public IActionResult AddAndEditView()
         {
             return View();
         }

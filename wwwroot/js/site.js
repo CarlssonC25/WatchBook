@@ -3,7 +3,9 @@
 //--------------------------------------------------------------------------
 
 function searchBarOnOFF(id, bool) {
-    if (elem.classList.contains("display-n") != bool) {
+    var elem = document.getElementById(id);
+
+    if (elem.classList.contains("display-n") == bool) {
         hiddeShowOnID(id);
     }
 }
@@ -26,13 +28,32 @@ function hiddeShowSwitchIDs(idOne, idTwo) {
 function hiddeShowOnID(id) {
     var elem = document.getElementById(id);
 
+    hiddeShowOnElem(elem);
+}
+
+function hiddeShowOnElem(elem) {
+    console.log("inn"); //test
+    console.log(elem); //test
     if (elem.classList.contains("display-n")) {
         elem.classList.remove("display-n");
     } else {
         elem.classList.add("display-n");
     }
-
 }
+
+function hiddeClass(cals, bool) {
+    var elems = document.getElementsByClassName(cals);
+
+    Array.prototype.forEach.call(
+        elems, elem => {
+            if (elem.classList.contains("display-n") !== bool) {
+                hiddeShowOnElem(elem);
+                console.log("yy"); //test
+            }
+        }
+    );
+}
+
 
 // add/remove class
 
@@ -48,6 +69,23 @@ function addRemoveClassToElemAtElem(elem, clas) {
     } else {
         elem.classList.add(clas);
     }
+}
+
+
+// url
+function getUrlValue(valueName) {
+    const url = window.location.href;
+    const queryParams = {};
+
+    const queryString = url.split('?')[1];
+
+    const pairs = queryString.includes('&') ? queryString.split('&') : [queryString];
+    pairs.forEach(pair => {
+        const [key, value] = pair.split('=');
+        queryParams[decodeURIComponent(key)] = decodeURIComponent(value || '');
+    });
+
+    return queryParams[valueName];
 }
 
 
@@ -101,7 +139,7 @@ function checkOnlyOne(id, className) {
 }
 
 //--------------------------------------------------------------------------
-//                              Add New Item
+//                              Add and Edit Item
 //--------------------------------------------------------------------------
 
 function setHiddenValue(hiddenID, value) {
@@ -132,6 +170,24 @@ function addGenre(genre) {
         newElem.innerHTML = elemText;
         newElem.setAttribute("id", setElemID);
         elemAddto.appendChild(newElem);
+    }
+}
+
+function pacheContentSwitch() {
+    let sendPache = getUrlValue("p").toUpperCase();
+
+    if (sendPache == "A") {
+        console.log("ist ein Anime");  // TEST
+
+        hiddeClass("anime-cc", false);
+        hiddeClass("movie-cc", true);
+
+    } else if (sendPache == "M") {
+        console.log("ist ein Film");   // TEST
+
+        hiddeClass("movie-cc", false);
+        hiddeClass("anime-cc", true);
+
     }
 }
 
