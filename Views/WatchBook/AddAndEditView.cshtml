@@ -75,23 +75,21 @@
                         <div class="mrg-t5">
                             <div class="flex">
                                 <p class="add-new-frontText">Genres:</p>
-                                <button class="btnStyle" onclick="showSearchSelect('addGenres')">Add</button>
+                                <button id="add-new-btn-genres" class="btnStyle" onclick="showSearchSelect('addGenres')">Add</button>
                             </div>
 
                             <div id="addGenres" class="elemColorStyle-1 add-new-box display-n">
                                 <ul class="flex">
                                     @for (var x = 10; x <= 21; x++)
                                     {
-                                        <li>
-                                            <input type="checkbox" id="@x" onclick="checkboxBackColor(@x); addGenre(@x);" name="genre" value="@x" class="back-col-777" />
+                                        <li> <!-- TODO ID = ID + genre name | Value = genre name -->
+                                            <input type="checkbox" id="@x" onclick="checkboxBackColor(@x); addGenreToBtn('add-new-genre', 'add-new-btn-genres');" name="genre" value="@x" class="add-new-genre back-col-777" />
                                             <label for="@x">@x</label>
                                         </li>
                                     }
                                 </ul>
                                 <input id="addNewGenres" type="hidden" value="" /> <!--TODO oncklick add/remove genre id in value-->
                             </div>
-
-                            <div id="add-new-show-genres" class="mrg-t10"></div>
                         </div>
 
                     </div>

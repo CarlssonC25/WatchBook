@@ -32,8 +32,6 @@ function hiddeShowOnID(id) {
 }
 
 function hiddeShowOnElem(elem) {
-    console.log("inn"); //test
-    console.log(elem); //test
     if (elem.classList.contains("display-n")) {
         elem.classList.remove("display-n");
     } else {
@@ -48,7 +46,6 @@ function hiddeClass(cals, bool) {
         elems, elem => {
             if (elem.classList.contains("display-n") !== bool) {
                 hiddeShowOnElem(elem);
-                console.log("yy"); //test
             }
         }
     );
@@ -143,7 +140,7 @@ function checkOnlyOne(id, className) {
 //--------------------------------------------------------------------------
 
 function setHiddenValue(hiddenID, value) {
-    var elem = document.getElementById(hiddenID);
+    const elem = document.getElementById(hiddenID);
 
     if (elem.value != value) {
         elem.value = value;
@@ -153,38 +150,38 @@ function setHiddenValue(hiddenID, value) {
 }
 
 
-function addGenre(genre) {
+function addGenreToBtn(genreClass, btnID) {
+    const btnElem = document.getElementById(btnID);
+    const genreElems = document.getElementsByClassName(genreClass);
 
-    const setElemID = "ID" + genre;
+    let genreAktiv = [];
 
-    if (!!document.getElementById(setElemID)) {
-        document.getElementById(setElemID).remove();
+    Array.prototype.forEach.call(
+        genreElems, elem => {
+            if (elem.checked) {
+                genreAktiv.push(elem.value);
+            }
+        }
+    );
 
-    } else {
-
-        const elemAddto = document.getElementById("add-new-show-genres");
-        const newElem = document.createElement("span");
-
-        const elemText = genre.toString().charAt(0).toUpperCase() + genre.toString().slice(1) + ", ";
-
-        newElem.innerHTML = elemText;
-        newElem.setAttribute("id", setElemID);
-        elemAddto.appendChild(newElem);
+    if (genreAktiv.length === 0) {
+        btnElem.innerHTML = "Add";
+    } else if (genreAktiv.length === 1) {
+        btnElem.innerHTML = genreAktiv[0];
+    } else if (genreAktiv.length >= 2) { 
+        btnElem.innerHTML = genreAktiv.length + " selected";
     }
 }
+
 
 function pacheContentSwitch() {
     let sendPache = getUrlValue("p").toUpperCase();
 
     if (sendPache == "A") {
-        console.log("ist ein Anime");  // TEST
-
         hiddeClass("anime-cc", false);
         hiddeClass("movie-cc", true);
 
     } else if (sendPache == "M") {
-        console.log("ist ein Film");   // TEST
-
         hiddeClass("movie-cc", false);
         hiddeClass("anime-cc", true);
 
