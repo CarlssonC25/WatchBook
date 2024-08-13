@@ -23,6 +23,6 @@ app.UseAuthorization();
 // Controller einstellung start seizte
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=WatchBook}/{action=Index}/{id?}");   // <-- {controller= ****** }
+    pattern: "{controller=WatchBook}/{action=Index}");   // <-- {controller= ****** }
 
 app.Run();

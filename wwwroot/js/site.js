@@ -175,7 +175,7 @@ function addGenreToBtn(genreClass, btnID) {
 
 
 function pacheContentSwitch() {
-    let sendPache = getUrlValue("p").toUpperCase();
+    const sendPache = getUrlValue("p").toUpperCase();
 
     if (sendPache == "A") {
         hiddeClass("anime-cc", false);
@@ -184,7 +184,11 @@ function pacheContentSwitch() {
     } else if (sendPache == "M") {
         hiddeClass("movie-cc", false);
         hiddeClass("anime-cc", true);
+    }
 
+    const elemID = getUrlValue("id");
+    if (elemID != "") {
+        setHiddenValue("addTo", true);
     }
 }
 

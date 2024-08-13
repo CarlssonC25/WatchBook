@@ -1,11 +1,5 @@
 ﻿<div class="container-fluid contentBody elem-center">
 
-    <!-- TODO 
-        if previous page is 
-            Anime => give all class movie-cc => class display-n
-            Movie => give all class anime-cc => class display-n
-    -->
-    
     <div id="add-new-row">
 
         <p id="add-new-titel">Add New </p>
@@ -20,7 +14,7 @@
                 <input id="add-new-name" type="text" placeholder="Name" />
                 <input id="add-new-original-name" class="anime-cc" type="text" placeholder="Original Name" />
 
-                <input id="addTo" type="hidden" value="" /> <!-- TODO if name exist set value too true -->
+                <input id="addTo" type="hidden" value="false" /> <!-- TODO if name exist set value too true -->
 
                 <div id="add-new-buy" class="flex">
                     <p class="add-new-frontText">Buy:</p>
@@ -127,6 +121,6 @@
 
 
 <script src="~/js/site.js"></script>
-<script language="javascript" type="text/javascript"> //TODO fix javascipt funtion in html
+<script language="javascript" type="text/javascript">
     pacheContentSwitch();
 </script>
