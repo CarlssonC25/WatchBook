@@ -354,7 +354,7 @@ textarea:focus,
     }
 
     a:hover {
-        @include transform(translateY(3px));
+        @include transform(translateY(-3px));
         @include transition(0.45s);
     }
 

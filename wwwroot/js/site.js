@@ -220,8 +220,15 @@ function movieShowWatchLaterBox() {
     addRemoveClassToElemAtID("movie-cont-r", "mrg-l-25");
 
     addRemoveClassToElemAtID("movie-cont-ru", "opt-0");
+
+    setTimeout(function () {
+        addRemoveClassToElemAtID("movie-cont-ru", "display-n");
+    }, 100);
+
+
     movieElmesSmall();
 }
+
 
 function movieElmesSmall() {
     var elems = document.getElementsByClassName("movie-elem");
