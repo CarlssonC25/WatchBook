@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using WatchBook.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Configure SQLite DbContext
+builder.Services.AddDbContext<MyDbContext>(options =>
+	options.UseSqlite("Data Source=Data/WatchBookDB.db"));
 
 var app = builder.Build();
 

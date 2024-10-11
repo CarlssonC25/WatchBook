@@ -1,146 +1,83 @@
 ﻿using System;
-using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 namespace WatchBook.Data
 {
-    public class MyDbContext
-    {
-        static void Main(string[] args)
-        {
-            string connectionString = "Data Source=WatchBookDB.db";
+	public class MyDbContext : DbContext
+	{
+		public MyDbContext(DbContextOptions<MyDbContext> options)
+			: base(options)
+		{
+		}
 
-            using (var connection = new SqliteConnection(connectionString))
-            {
-                connection.Open();
+		public DbSet<Anime> Animes { get; set; }
+		public DbSet<WatchLaterAnime> WatchLaterAnimes { get; set; }
+		public DbSet<Genre> Genres { get; set; }
+		public DbSet<AnimeGenre> AnimeGenres { get; set; }
+		public DbSet<Movie> Movies { get; set; }
+		public DbSet<WatchLaterMovie> WatchLaterMovies { get; set; }
+		public DbSet<MovieGenre> MovieGenres { get; set; }
+		public DbSet<Settings> Settings { get; set; }
 
-                // Erstellen Sie die Tabellen
-                string createAnimeTable = @"
-                CREATE TABLE IF NOT EXISTS Anime (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Rank TINYINT,
-                    Name TEXT,
-                    OriginalName TEXT,
-                    Text TEXT,
-                    Buy TINYINT,
-                    Img BLOB,
-                    AnimeID INTEGER,
-                    Link TEXT,
-                    SearchCount INTEGER,
-                    DateAired DATE
-                )";
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			// Zusammengesetzter Primärschlüssel für AnimeGenre
+			modelBuilder.Entity<AnimeGenre>()
+				.HasKey(ag => new { ag.AnimeID, ag.GenreID });
 
-                string createWatchLaterAnimeTable = @"
-                CREATE TABLE IF NOT EXISTS WatchLaterAnime (
-                    AnimeID INTEGER,
-                    Comment TEXT,
-                    FOREIGN KEY (AnimeID) REFERENCES Anime (ID)
-                )";
+			// Fremdschlüssel für AnimeGenre
+			modelBuilder.Entity<AnimeGenre>()
+				.HasOne(ag => ag.Anime)
+				.WithMany(a => a.AnimeGenres)
+				.HasForeignKey(ag => ag.AnimeID)
+				.OnDelete(DeleteBehavior.Cascade);
 
-                string createGenreTable = @"
-                CREATE TABLE IF NOT EXISTS Genre (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Name TEXT
-                )";
+			modelBuilder.Entity<AnimeGenre>()
+				.HasOne(ag => ag.Genre)
+				.WithMany(g => g.AnimeGenres)
+				.HasForeignKey(ag => ag.GenreID)
+				.OnDelete(DeleteBehavior.Cascade);
 
-                string createAnimeGenreTable = @"
-                CREATE TABLE IF NOT EXISTS AnimeGenre (
-                    AnimeID INTEGER,
-                    GenreID INTEGER,
-                    FOREIGN KEY (AnimeID) REFERENCES Anime (ID),
-                    FOREIGN KEY (GenreID) REFERENCES Genre (ID)
-                )";
+			// Zusammengesetzter Primärschlüssel für MovieGenre
+			modelBuilder.Entity<MovieGenre>()
+				.HasKey(mg => new { mg.MovieID, mg.GenreID });
 
-                string createMovieTable = @"
-                CREATE TABLE IF NOT EXISTS Movie (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Name TEXT,
-                    Buy TINYINT,
-                    Text TEXT,
-                    Img BLOB,
-                    MovieID INTEGER,
-                    Episodes INTEGER,
-                    Age TINYINT,
-                    Favorit BOOLEAN,
-                    DateAired DATE
-                )";
+			// Fremdschlüssel für MovieGenre
+			modelBuilder.Entity<MovieGenre>()
+				.HasOne(mg => mg.Movie)
+				.WithMany(m => m.MovieGenres)
+				.HasForeignKey(mg => mg.MovieID)
+				.OnDelete(DeleteBehavior.Cascade);
 
-                string createWatchLaterMovieTable = @"
-                CREATE TABLE IF NOT EXISTS WatchLaterMovie (
-                    MovieID INTEGER,
-                    Comment TEXT,
-                    FOREIGN KEY (MovieID) REFERENCES Movie (ID)
-                )";
+			modelBuilder.Entity<MovieGenre>()
+				.HasOne(mg => mg.Genre)
+				.WithMany(g => g.MovieGenres)
+				.HasForeignKey(mg => mg.GenreID)
+				.OnDelete(DeleteBehavior.Cascade);
 
-                string createMovieGenreTable = @"
-                CREATE TABLE IF NOT EXISTS MovieGenre (
-                    MovieID INTEGER,
-                    GenreID INTEGER,
-                    FOREIGN KEY (MovieID) REFERENCES Movie (ID),
-                    FOREIGN KEY (GenreID) REFERENCES Genre (ID)
-                )";
+			// WatchLaterAnime -> Zusammengesetzter Primärschlüssel
+			modelBuilder.Entity<WatchLaterAnime>()
+				.HasKey(wla => new { wla.AnimeID, wla.Comment });
 
-                string createSettingsTable = @"
-                CREATE TABLE IF NOT EXISTS Settings (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Comment TEXT,
-                    Img BLOB
-                )";
+			// WatchLaterAnime -> Anime (Foreign Key)
+			modelBuilder.Entity<WatchLaterAnime>()
+				.HasOne(wla => wla.Anime)
+				.WithMany(a => a.WatchLaterAnimes)
+				.HasForeignKey(wla => wla.AnimeID)
+				.OnDelete(DeleteBehavior.Cascade);
 
-                // Führen Sie die SQL-Befehle aus
-                using (var command = new SqliteCommand(createAnimeTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createWatchLaterAnimeTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createGenreTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createAnimeGenreTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createMovieTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createWatchLaterMovieTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createMovieGenreTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (var command = new SqliteCommand(createSettingsTable, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
+			// WatchLaterMovie -> Zusammengesetzter Primärschlüssel
+			modelBuilder.Entity<WatchLaterMovie>()
+				.HasKey(wlm => new { wlm.MovieID, wlm.Comment });
 
-                // Beispiel für das Einfügen von Daten
-                string insertAnime = @"
-                INSERT INTO Anime (Rank, Name, OriginalName, Text, Buy, Img, AnimeID, Link, SearchCount, DateAired)
-                VALUES (1, 'My Anime', 'Original Name', 'Some text', 1, NULL, 1, '', 100, '2023-07-23')";
+			// WatchLaterMovie -> Movie (Foreign Key)
+			modelBuilder.Entity<WatchLaterMovie>()
+				.HasOne(wlm => wlm.Movie)
+				.WithMany(m => m.WatchLaterMovies)
+				.HasForeignKey(wlm => wlm.MovieID)
+				.OnDelete(DeleteBehavior.Cascade);
 
-                using (var command = new SqliteCommand(insertAnime, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-
-                // Beispiel für das Abrufen von Daten
-                string selectAnime = "SELECT * FROM Anime";
-                using (var command = new SqliteCommand(selectAnime, connection))
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"ID: {reader["ID"]}, Name: {reader["Name"]}");
-                    }
-                }
-            }
-        }
-    }
+			base.OnModelCreating(modelBuilder);
+		}
+	}
 }

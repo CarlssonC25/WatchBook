@@ -2,7 +2,6 @@
 {
     public class AnimeModel
     {
-        public required string ID { get; set; }
         public required string OriginalName { get; set; }
         public required bool Country { get; set; } // true = Japan | false = China
         public required int Rank { get; set; } // 1-10 and 11 = S
