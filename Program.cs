@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 using WatchBook.Data;
+using WatchBook.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Configure SQLite DbContext
+MyService.Initialize(builder.Configuration);
+
+string dbPath = MyService.DbPath();
 builder.Services.AddDbContext<MyDbContext>(options =>
-	options.UseSqlite("Data Source=Data/WatchBookDB.db"));
+	options.UseSqlite(dbPath));
+
 
 var app = builder.Build();
 
