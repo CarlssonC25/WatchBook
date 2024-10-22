@@ -2,7 +2,7 @@
 {
     public class MovieModel
     {
-        public required int FSK { get; set; }
+        public required byte FSK { get; set; }
         public required bool Favourite { get; set; }
 
 
