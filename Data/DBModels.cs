@@ -7,6 +7,7 @@
 		public string Name { get; set; }
 		public string OrginalName { get; set; }
 		public string Text { get; set; }
+		public bool Country { get; set; }
 		public byte Buy { get; set; }
 		public byte[] IMG { get; set; } // Assuming img is stored as byte array
 		public int AnimeID { get; set; }
@@ -22,6 +23,7 @@
 
 	public class WatchLaterAnime
 	{
+		public int ID { get; set; }
 		public int AnimeID { get; set; }
 		public string Comment { get; set; }
 
@@ -69,6 +71,7 @@
 
 	public class WatchLaterMovie
 	{
+		public int ID { get; set; }
 		public int MovieID { get; set; }
 		public string Comment { get; set; }
 
