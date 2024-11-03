@@ -464,10 +464,84 @@ namespace WatchBook.Data
 
 		}
 
-		// DB Deleted Date -----
-		public void DeletedData(object item) 
-		{ 
+		// DB Delete Date -----
+		public void DbDeleteAnime(AnimeModel delAnime)
+		{
+			var animeToDel = _context.Animes
+									.Include(g => g.AnimeGenres)
+									.FirstOrDefault(a => a.ID == delAnime.Item.ID);
 
+			if (animeToDel != null) 
+			{
+				var animesToDel = _context.Animes
+											.Where(a => a.AnimeID == delAnime.Item.ID)
+											.Include(a => a.AnimeGenres)
+											.ToList();
+
+				animesToDel.Add(animeToDel);
+
+				foreach (var anime in animesToDel)
+				{
+					_context.AnimeGenres.RemoveRange(anime.AnimeGenres);
+				}
+
+				_context.Animes.RemoveRange(animesToDel);
+				_context.SaveChanges();
+			}
+		}
+		public void DbDeleteMovie(MovieModel delMovie) 
+		{
+			var movieToDel = _context.Movies
+										.Include(g => g.MovieGenres)
+										.FirstOrDefault(m => m.ID == delMovie.Item.ID);
+
+			if(movieToDel != null)
+			{
+				var moviesToDel = _context.Movies
+											.Where(m => m.MovieID == delMovie.Item.ID)
+											.Include(a => a.MovieGenres)
+											.ToList();
+
+				moviesToDel.Add(movieToDel);
+
+				foreach(var movie in moviesToDel)
+				{
+					_context.MovieGenres.RemoveRange(movie.MovieGenres);
+				}
+
+				_context.Movies.RemoveRange(moviesToDel);
+				_context.SaveChanges();
+			}
+		}
+		public void DbDeleteGenre(GenreModel delGenre)
+		{
+			var genreToDel = _context.Genres.FirstOrDefault(g => g.ID == delGenre.Id);
+
+			if(genreToDel != null)
+			{
+				_context.Genres.Remove(genreToDel);
+				_context.SaveChanges();
+			}
+		}
+		public void DbDeleteWatchLaterAnime(WatchLaterAnimeModel delWLAnime)
+		{
+			var WLAnimeToDel = _context.WatchLaterAnimes.FirstOrDefault(w => w.ID == delWLAnime.Id);
+
+			if (WLAnimeToDel != null)
+			{
+				_context.WatchLaterAnimes.Remove(WLAnimeToDel);
+				_context.SaveChanges();
+			}
+		}
+		public void DbDeleteWatchLaterMovie(WatchLaterMovieModel delWLMovie)
+		{
+			var WLMovieToDel = _context.WatchLaterMovies.FirstOrDefault(w => w.ID == delWLMovie.Id);
+
+			if (WLMovieToDel != null)
+			{
+				_context.WatchLaterMovies.Remove(WLMovieToDel);
+				_context.SaveChanges();
+			}
 		}
 	}
 }
