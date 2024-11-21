@@ -673,6 +673,26 @@ textarea:focus,
   padding: 0;
 }
 
+.setting-genres-structure {
+  width: 30%;
+  background-color: #1c1c1c;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+.setting-genre-box div {
+  width: 33%;
+}
+
+.setting-genre-box button {
+  margin: 3px auto;
+}
+
+.setting-genre-add {
+  margin: 3px auto;
+  color: #8c5ece !important;
+}
+
 /*-----------------------------------------------------------------
                   AddNew View / Item View
 -----------------------------------------------------------------*/

@@ -663,12 +663,31 @@ textarea:focus,
     padding: 0;
 }
 
+.setting-genres-structure {
+    width: 30%;
+    background-color: $col-gray-bright;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.setting-genre-box div {
+    width: 33%;
+}
+
+.setting-genre-box button {
+    margin: 3px auto;
+}
+
+.setting-genre-add {
+    margin: 3px auto;
+    color: $col-pur-normal !important;
+}
+
 
 /*-----------------------------------------------------------------
                   AddNew View / Item View
 -----------------------------------------------------------------*/
 /*Both*/
-
 #add-new-buy,
 #item-buy {
     display: flex;

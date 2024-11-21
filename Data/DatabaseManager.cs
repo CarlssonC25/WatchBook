@@ -87,7 +87,7 @@ namespace WatchBook.Data
 
 			return modelGenre;
 		}
-		private WatchLaterAnimeModel CreateWatchLaterAnimeModel (WatchLaterAnime rawLater)
+		private WatchLaterAnimeModel CreateWatchLaterAnimeModel(WatchLaterAnime rawLater)
 		{
 			WatchLaterAnimeModel later = new WatchLaterAnimeModel
 			{
@@ -111,7 +111,7 @@ namespace WatchBook.Data
 		}
 
 
-		// DB Insert Date ------		
+		// DB Insert Date ------
 		public void DbInsertAnime(AnimeModel rawAnime)
 		{
 			if (!ExistsItem(rawAnime))
@@ -231,7 +231,7 @@ namespace WatchBook.Data
 			_context.SaveChanges();
 		}
 
-		// DB Update Date ------		
+		// DB Update Date -----
 		public void DbUpdateAnime(AnimeModel upAnime)
 		{
 			var anime = _context.Animes.FirstOrDefault(a => a.ID == upAnime.Item.ID);
