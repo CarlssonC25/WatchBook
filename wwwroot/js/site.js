@@ -194,6 +194,38 @@ function pacheContentSwitch() {
 
 
 //--------------------------------------------------------------------------
+// Setting
+//--------------------------------------------------------------------------
+
+function settingAddSearch(id) {
+    const elem = document.getElementById(id);
+
+    const newElem = document.createElement("div");
+    newElem.classList.add("elem-center");
+
+    const newBtn = document.createElement("button");
+    newBtn.classList.add("elemColorStyle-2");
+    newBtn.classList.add("elemActionStyle-2");
+
+    const newBtnTx = document.createTextNode("x");
+    newBtn.appendChild(newBtnTx);
+    newElem.appendChild(newBtn);
+
+    const newNameInp = document.createElement("input");
+    newNameInp.classList.add("elemColorStyle-2");
+    newNameInp.classList.add("elemActionStyle-2");
+    newNameInp.classList.add("setting-search-name");
+    newElem.appendChild(newNameInp);
+
+    const newLinkInp = document.createElement("input");
+    newLinkInp.classList.add("elemColorStyle-2");
+    newLinkInp.classList.add("elemActionStyle-2");
+    newElem.appendChild(newLinkInp);
+
+    elem.appendChild(newElem);
+}
+
+//--------------------------------------------------------------------------
 //Anime / Movie
 //--------------------------------------------------------------------------
 

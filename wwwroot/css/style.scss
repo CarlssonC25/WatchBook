@@ -617,6 +617,10 @@ textarea:focus,
 -----------------------------------------------------------------*/
 .settings {
     color: $text-col-dark;
+
+    button {
+        border: none;
+    }
 }
 
 .settings p {
@@ -629,11 +633,6 @@ textarea:focus,
     margin-bottom: 20px;
 }
 
-.settings button {
-    border: none;
-    border-radius: 1px;
-}
-
 .settings input {
     border: none;
 }
@@ -643,24 +642,48 @@ textarea:focus,
     background-color: $col-gray-bright;
     border-radius: $base-corner-radius;
     padding: 10px;
+
+    span {
+        position: absolute;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 19px;
+        width: 100%;
+    }
+
+    img:hover {
+        opacity: 0.1;
+        cursor: pointer;
+        @include transition(0.2s);
+    }
+
+    .home-container {
+        padding: 0;
+    }
 }
 
-#setting-homescreen span {
-    position: absolute;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 19px;
-    width: 100%;
+#setting-search {
+    background-color: $col-gray-bright;
+    border-radius: $base-corner-radius;
+
+    div {
+        padding: 5px;
+    }
 }
 
-#setting-homescreen img:hover {
-    opacity: 0.1;
-    cursor: pointer;
-    @include transition(0.2s);
+.setting-genre-btn {
+
+    button {
+        padding: 2px;
+
+        img {
+            width: 90%;
+        }
+    }
 }
 
-#setting-homescreen .home-container {
-    padding: 0;
+.setting-search-name {
+    margin: 0px 5px;
 }
 
 .setting-genres-structure {
@@ -668,14 +691,19 @@ textarea:focus,
     background-color: $col-gray-bright;
     border-radius: 3px;
     margin-top: 5px;
+    padding-top: 2px;
+    position: absolute;
 }
 
-.setting-genre-box div {
-    width: 33%;
-}
+.setting-genre-box {
 
-.setting-genre-box button {
-    margin: 3px auto;
+    div {
+        width: 25%;
+    }
+
+    button {
+        margin: 3px auto;
+    }
 }
 
 .setting-genre-add {
