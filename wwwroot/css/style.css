@@ -676,6 +676,11 @@ textarea:focus,
   padding: 5px;
 }
 
+#setting-genre-new input {
+  margin: 3px 5px;
+  width: 6.5em;
+}
+
 .setting-genre-btn button {
   padding: 2px;
 }
@@ -683,8 +688,34 @@ textarea:focus,
   width: 90%;
 }
 
+.setting-genre-box .genre:hover {
+  color: #961a1a;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration-line: line-through;
+}
+
 .setting-search-name {
   margin: 0px 5px;
+}
+
+.info {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 5px;
+  background-color: #1c1c1c;
+  padding: 0px 8px;
+  border-radius: 10px;
+  cursor: help;
+}
+
+#info-box {
+  position: absolute;
+  background-color: #1c1c1c;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .setting-genres-structure {
@@ -696,6 +727,10 @@ textarea:focus,
   position: absolute;
 }
 
+.setting-genre-box {
+  display: flex;
+  flex-wrap: wrap;
+}
 .setting-genre-box div {
   width: 25%;
 }

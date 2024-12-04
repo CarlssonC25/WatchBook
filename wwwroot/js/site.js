@@ -10,6 +10,13 @@ function searchBarOnOFF(id, bool) {
     }
 }
 
+// elems functions
+function deletParentElem(elem){
+    const parent = elem.parentElement;
+    parent.remove();
+}
+
+
 //hover opacety
 function optElemHover(elem) {
     elem.getElementsByClassName("elem-hover-efk")[0].classList.remove("opt-0");
@@ -204,6 +211,7 @@ function settingAddSearch(id) {
     newElem.classList.add("elem-center");
 
     const newBtn = document.createElement("button");
+    newBtn.setAttribute("onclick", "deletParentElem(this)"); // TODO if it clickt then delet it in the DB 
     newBtn.classList.add("elemColorStyle-2");
     newBtn.classList.add("elemActionStyle-2");
 

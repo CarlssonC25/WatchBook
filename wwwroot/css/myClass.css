@@ -3,6 +3,10 @@
     margin: 0px;
 }
 
+.mrg-l5 {
+    margin-left: 5px;
+}
+
 .mrg-l6 {
     margin-left: 6px;
 }
@@ -44,6 +48,10 @@
 
 .pad-0 {
     padding: 0;
+}
+
+.pad-t7 {
+    padding-top:7px;
 }
 
 .fl-r {
@@ -129,6 +137,12 @@
 
 
 /*Elem color Style*/
+.elemColorStyle-1s {
+    background: #1c1c1c;
+    border-radius: 5px;
+    color: #777777;
+}
+
 .elemColorStyle-1 {
     background: #1c1c1c;
     border-radius: 5px;
@@ -137,6 +151,12 @@
 
 .elemColorStyle-1:focus {
     background-color: #2e2e2e;
+}
+
+.elemColorStyle-2s {
+    background: #0e0e0e;
+    border-radius: 5px;
+    color: #777777;
 }
 
 .elemColorStyle-2 {

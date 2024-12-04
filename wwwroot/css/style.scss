@@ -671,6 +671,14 @@ textarea:focus,
     }
 }
 
+#setting-genre-new {
+
+    input {
+        margin: 3px 5px;
+        width: 6.5em;
+    }
+}
+
 .setting-genre-btn {
 
     button {
@@ -681,9 +689,34 @@ textarea:focus,
         }
     }
 }
+.setting-genre-box {
+
+    .genre:hover {
+        color: #961a1a;
+        @include transition(0.5s);
+        text-decoration-line: line-through;
+    }
+}
 
 .setting-search-name {
     margin: 0px 5px;
+}
+
+.info {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 5px;
+    background-color: $col-gray-bright;
+    padding: 0px 8px;
+    border-radius: 10px;
+    cursor: help;
+}
+
+#info-box {
+    position: absolute;
+    background-color: $col-gray-bright;
+    border-radius: $base-corner-radius;
+    padding: 5px;
 }
 
 .setting-genres-structure {
@@ -696,6 +729,8 @@ textarea:focus,
 }
 
 .setting-genre-box {
+    display: flex;
+    flex-wrap: wrap;
 
     div {
         width: 25%;

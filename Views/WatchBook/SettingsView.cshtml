@@ -29,7 +29,7 @@
 			<div class="elem-center">
 				<p>Edit Genres</p>
 				<div class="setting-genre-btn">
-					<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7" onclick="hiddeShowOnID('setting-genres')">
+					<button class="elemColorStyle-1s elemActionStyle-1 mrg-t7" onclick="hiddeShowOnID('setting-genres')">
 						<img src="/img/wrench.png" />
 					</button>
 				</div>
@@ -37,36 +37,48 @@
 
 			<div id="setting-genres" class ="elem-center display-n">
 				<div class="setting-genres-structure">
-
-					<!--TODO load all Genre and sord to adc -->
-					@for (var i = 1; i < 20; i++)
-					{
-
-						if ((i - 1) % 4 == 0)
+										
+					<div class="setting-genre-box">
+						<!--TODO load all Genre and sord to ABC -->
+						@for (var i = 1; i < 20; i++)
 						{
-							@:<div class="setting-genre-box flex">
-						}
-								<div class="flex">
-									<button class="elemColorStyle-2 elemActionStyle-2 mrg-t7">Genre @i</button>
-								</div>
-						if (i % 4 == 0 || i == 20)
-						{
-							@:</div>
-						}
-					}				
-					<div class="flex" style="width:25%;">
-						<button class="setting-genre-add elemColorStyle-2 elemActionStyle-2 mrg-t7">+ Add</button>					
+							<div class="flex">
+								<button class="genre elemColorStyle-2s elemActionStyle-2 mrg-t7" onclick="deletParentElem(this)">Genre @i</button>
+							</div>						
+						}	
+						
+						<div class="flex">
+							<div id="setting-genre-new" class="flex display-n">
+								<input class="elemColorStyle-2 elemActionStyle-2" placeholder="New Genre"/>
+								<!-- TODO click on Save btn save in DB new Genre and add in Genre list-->
+								<button class="elemColorStyle-2s elemActionStyle-2" onclick="hiddeShowSwitchIDs('setting-genre-new', 'setting-genre-add')">Save</button>
+							</div>
+							<button id="setting-genre-add" class="setting-genre-add elemColorStyle-2s elemActionStyle-2 mrg-t7" onclick="hiddeShowSwitchIDs('setting-genre-add', 'setting-genre-new')">+ Add</button>			
+						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
 
 
-		<div>
+		<div class="mrg-t7">
 			<div class="elem-center">
 				<p>Search with</p>
 				<div>
-					<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7" onclick="settingAddSearch('setting-search')">+ add Search</button>
+					<button class="elemColorStyle-1s elemActionStyle-1 mrg-t7" onclick="settingAddSearch('setting-search')">+ add Search</button>
+				</div>				
+				<div class="pad-t7">
+					<span class="info" onmouseover="hiddeShowOnID('info-box')" onmouseout="hiddeShowOnID('info-box')">i</span>
+					<span id="info-box" class="mrg-l5 display-n">
+					Webside Name left<br /><br />
+
+					link right<br />
+					=> google.com/~name-~/....<br />
+					between ~<br />
+					name + blank between words<br />
+					episode <br />
+				</span>
 				</div>
 				
 			</div>
@@ -84,8 +96,8 @@
 
 			<div>
 				<!-- TODO Create / uplode DB -->
-				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">Set</button>
-				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">New</button>
+				<button class="elemColorStyle-1s elemActionStyle-1 mrg-t7">Set</button>
+				<button class="elemColorStyle-1s elemActionStyle-1 mrg-t7">New</button>
 			</div>
 		</div>
 
@@ -95,7 +107,7 @@
 
 			<div>
 				<!-- TODO Create .txt -->
-				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">Create</button>
+				<button class="elemColorStyle-1s elemActionStyle-1 mrg-t7">Create</button>
 			</div>
 		</div>
 
@@ -105,7 +117,7 @@
 
 			<div>
 				<!-- TODO export DB -->
-				<button class="elemColorStyle-1 elemActionStyle-1 mrg-t7">Export</button>
+				<button class="elemColorStyle-1s elemActionStyle-1 mrg-t7">Export</button>
 			</div>
 		</div>
 
